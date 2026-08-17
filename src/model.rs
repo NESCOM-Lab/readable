@@ -46,8 +46,17 @@ pub struct Metadata {
 }
 
 
+/// A single entry from the reference list
 #[derive(Debug, Clone, PartialEq, Default, Serialize)]
 pub struct Citation {
+    /// JATS 'id' attribute of the '<ref>', when present.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub id: Option<String>,
+    /// The citation text, flattened to a single string.
+    pub text: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub doi: Option<String>,
+    pub provenance: String,
 }
 
 #[derive(Debug, Clone, PartialEq, Default, Serialize)]
