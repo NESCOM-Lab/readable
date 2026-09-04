@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article article-type="research-article">
+  <front>
+    <article-meta>
+      <article-id pub-id-type="pmid">31234567</article-id>
+      <article-id pub-id-type="pmc">PMC7654321</article-id>
+      <article-id pub-id-type="doi">10.1000/neuro.2026.001</article-id>
+      <title-group>
+        <article-title>Hippocampal <italic>Theta</italic> Oscillations During Spatial Navigation</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Ramirez</surname>
+            <given-names>Elena</given-names>
+          </name>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Okonkwo</surname>
+            <given-names>David A.</given-names>
+          </name>
+        </contrib>
+      </contrib-group>
+      <pub-date pub-type="epub">
+        <year>2026</year>
+      </pub-date>
+      <abstract>
+        <p>We recorded hippocampal local field potentials in freely moving mice
+           during a spatial navigation task.</p>
+        <p>Theta-band power scaled with running speed and predicted place-cell
+           firing, supporting a role for theta in spatial coding.</p>
+      </abstract>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="intro">
+      <title>Introduction</title>
+      <p>The hippocampus supports spatial memory. This paragraph introduces
+         theta oscillations with an inline
+         <xref ref-type="bibr" rid="ref1">reference</xref>.</p>
+      <p>Place cells fire selectively when an animal occupies a location.</p>
+      <sec id="intro-background">
+        <title>Background</title>
+        <p>Prior work linked theta rhythm to memory encoding in the entorhinal
+           cortex.</p>
+      </sec>
+    </sec>
+    <sec id="methods">
+      <title>Methods</title>
+      <p>We implanted silicon probes in area CA1 and recorded from freely moving
+         mice during a linear-track task.</p>
+      <fig id="fig1">
+        <label>Figure 1</label>
+        <caption>
+          <p>Recording setup and example theta-filtered LFP trace from CA1.</p>
+        </caption>
+      </fig>
+      <table-wrap id="tab1">
+        <label>Table 1</label>
+        <caption>
+          <p>Mean theta frequency and power across running-speed bins.</p>
+        </caption>
+        <table>
+          <tbody>
+            <tr><td>Slow (&lt;5 cm/s)</td><td>7.1 Hz</td></tr>
+          </tbody>
+        </table>
+      </table-wrap>
+    </sec>
+  </body>
+  <back>
+    <ref-list>
+      <ref id="ref1">
+        <mixed-citation>
+          O'Keefe, J. and Nadel, L. The Hippocampus as a Cognitive Map. Oxford, 1978.
+          <pub-id pub-id-type="doi">10.1000/okeefe.1978</pub-id>
+        </mixed-citation>
+      </ref>
+      <ref id="ref2">
+        <element-citation publication-type="journal">
+          Buzsaki, G. Theta oscillations in the hippocampus. Neuron, 2002.
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>

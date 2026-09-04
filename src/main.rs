@@ -5,9 +5,10 @@ use clap::{Parser, Subcommand};
 
 mod jats;
 mod model;
+mod query;
 mod workspace;
 
-/// convert jats xml paper into a IR
+/// Convert a JATS XML paper into a workspace.
 #[derive(Parser)]
 struct Cli {
     #[command(subcommand)]
@@ -24,6 +25,11 @@ enum Command {
         #[arg(short, long)]
         out: Option<PathBuf>,
     },
+    /// Query a parsed paper (a workspace folder or a JATS XML file).
+    Query {
+        #[command(subcommand)]
+        query: query::Query,
+    },
 }
 
 fn main() {
@@ -31,6 +37,7 @@ fn main() {
 
     let result = match &cli.command {
         Command::Parse { input, out } => run_parse(input, out.as_deref()),
+        Command::Query { query } => query::run(query),
     };
 
     if let Err(message) = result {
