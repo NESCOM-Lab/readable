@@ -123,6 +123,7 @@ fn parse_section(sec: Node) -> Section {
             "title" => section.title = Some(inner_text(child)),
             "p" => section.paragraphs.push(Paragraph {
                 text: inner_text(child),
+                citations: citation_ids(child),
                 provenance: element_path(child),
             }),
             "sec" => section.subsections.push(parse_section(child)),
@@ -131,6 +132,25 @@ fn parse_section(sec: Node) -> Section {
     }
 
     section
+}
+
+fn citation_ids(paragraph: Node) -> Vec<String> {
+    let mut ids = Vec::new();
+
+    for xref in paragraph.descendants() {
+        if tag(xref) != "xref" || xref.attribute("ref-type") != Some("bibr") {
+            continue;
+        }
+        if let Some(rid) = xref.attribute("rid") {
+            for id in rid.split_whitespace() {
+                if !ids.iter().any(|found| found == id) {
+                    ids.push(id.to_string());
+                }
+            }
+        }
+    }
+
+    ids
 }
 
 fn parse_figure(fig: Node) -> Figure {
@@ -315,6 +335,8 @@ mod tests {
         assert_eq!(intro.id.as_deref(), Some("intro"));
         assert_eq!(intro.title.as_deref(), Some("Introduction"));
         assert_eq!(intro.paragraphs.len(), 2);
+        assert_eq!(intro.paragraphs[0].citations, vec!["ref1", "ref2"]);
+        assert!(intro.paragraphs[1].citations.is_empty());
         assert_eq!(intro.subsections.len(), 1);
         assert_eq!(intro.subsections[0].title.as_deref(), Some("Background"));
 

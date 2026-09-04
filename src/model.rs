@@ -91,6 +91,8 @@ pub struct Section {
 #[derive(Debug, Clone, PartialEq, Default, Serialize)]
 pub struct Paragraph {
     pub text: String,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub citations: Vec<String>,
     pub provenance: String,
 }
 
@@ -118,5 +120,4 @@ pub struct Table {
     pub caption: Option<String>,
     pub provenance: String,
 }
-
 
