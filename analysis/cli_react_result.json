@@ -1,0 +1,23 @@
+{
+  "steps_used": 5,
+  "prompt_tokens": 14297,
+  "output_tokens": 231,
+  "seconds": 61.8,
+  "answer": "Adult neurogenesis improves spatial information encoding by enhancing the place-specificity and activity of dentate gyrus (DG) neurons. Experimental manipulations included: (1) housing mice in enriched environments (EE) vs. regular cages (RC), (2) ablating neurogenesis via focal irradiation, and (3) acutely silencing adult-born neurons (ABNs) using chemogenetics (hM4Di/CNO). Measured neural effects showed that EE increased, while ablation or silencing decreased, single-cell spatial information, calcium activity, and tuning indices. Ablation also reduced the goodness-of-fit of tuning curves, indicating less precise spatial representations. The proposed mechanism is that ABNs integrate into DG circuits to increase neuronal activity and sharpen tuning, rather than altering noise correlations. This contrasts with prior views suggesting that noise correlations might be beneficial or that ABNs primarily act via synaptic competition without affecting single-cell tuning; here, ABNs are shown to directly boost single-cell information content and activity levels.",
+  "transcript": [
+    "[step 1] model: ACTION: section Sec3",
+    "[step 2] model: ACTION: section Sec4",
+    "[step 3] model: ACTION: section Sec5",
+    "[step 4] model: ACTION: section Sec6",
+    "[step 5] model: ANSWER: Adult neurogenesis improves spatial information encoding by enhancing the place-specificity and activity of dentate gyrus (DG) neurons. Experimental manipulations included: (1) housing mice in"
+  ],
+  "score": {
+    "manipulations": 2,
+    "effects": 2,
+    "mechanism": 2,
+    "contrast": 1,
+    "overall_8": 7,
+    "judge": "Claude",
+    "note": "All 3 manipulations + good effects/mechanism; contrast muddled (noise correlations vs the canonical inhibitory-role point)."
+  }
+}

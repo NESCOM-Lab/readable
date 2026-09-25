@@ -1,0 +1,43 @@
+{
+  "raw": {
+    "answer": "Adult neurogenesis improves spatial information encoding through the following mechanisms:\n\n1.  **Experimental Manipulations:** Researchers housed mice in enriched environments (EE) to increase neurogenesis, ablated neurogenesis via focal irradiation, or acutely silenced adult-born neurons (ABNs) using chemogenetics (hM4Di/CNO).\n2.  **Measured Neural Effects:** EE exposure increased spatial information content and calcium activity in the dentate gyrus (DG). Conversely, ablating or silencing ABNs decreased spatial information, reduced calcium activity, lowered tuning indices, and diminished the amplitude of place-specific responses.\n3.  **Proposed Mechanism:** ABNs improve spatial representations by increasing the response gain of DG neurons. This multiplicative increase in activity enhances the ability of granule cells to tune to specific spatial features without disproportionately increasing response variability.\n4.  **Contrast with Prior Views:** These findings contradict previous studies suggesting that ABNs exert a predominantly inhibitory action on DG circuits. Instead, the study demonstrates that integrating ABNs modulates neuronal gain to boost spatial selectivity and information encoding.",
+    "prompt_tokens": 16948,
+    "output_tokens": 226,
+    "seconds": 105.5,
+    "context_chars": 69842,
+    "score": {
+      "manipulations": 2,
+      "effects": 2,
+      "mechanism": 2,
+      "contrast": 2,
+      "overall_8": 8,
+      "judge": "Claude",
+      "note": "Complete: all 3 manipulations, full effects, precise gain mechanism, inhibition contrast."
+    }
+  },
+  "rag": {
+    "answer": "Adult neurogenesis improves spatial information encoding through the following process:\n\n(1) **Experimental Manipulations:** Researchers housed mice in regular cages (RC) or enriched environments (EE) with running wheels. To test necessity, they ablated adult neurogenesis in the dentate gyrus (DG) using bilateral focal irradiation.\n\n(2) **Measured Neural Effects:** Two weeks of EE housing increased the number of adult-born neurons (ABNs) and significantly increased spatial information content and decoding accuracy in the DG. Conversely, ablating ABNs decreased spatial information content.\n\n(3) **Proposed Mechanism:** The increase in spatial information is mediated by an increase in spatially selective activity at the single-cell level. This leads to increased response gain in the DG, allowing granule cells to better tune to spatial features and improving the accuracy of neural representations of space.\n\n(4) **Contrast with Prior Views:** This finding contrasts with current models proposing that ABNs contribute to memory primarily by activating local interneurons to increase inhibition. Instead, this study suggests ABNs improve memory by enhancing spatial tuning and information encoding, rather than solely through increased inhibition.",
+    "prompt_tokens": 1266,
+    "output_tokens": 234,
+    "seconds": 22.2,
+    "context_chars": 5890,
+    "embed_seconds": 3.1,
+    "retrieved_from": [
+      "sec7_discussion.md",
+      "sec2_results.md",
+      "sec1_introduction.md",
+      "sec7_discussion.md",
+      "sec2_results.md",
+      "sec2_results.md"
+    ],
+    "score": {
+      "manipulations": 1,
+      "effects": 1,
+      "mechanism": 2,
+      "contrast": 2,
+      "overall_8": 6,
+      "judge": "Claude",
+      "note": "Missed chemogenetic silencing and calcium/amplitude effects (retrieval recall gap)."
+    }
+  }
+}
