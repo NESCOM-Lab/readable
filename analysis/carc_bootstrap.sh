@@ -1,0 +1,115 @@
+#!/bin/bash
+# One-time setup for the evaluation on a CARC login node.
+#
+#   scp analysis/carc_bootstrap.sh kakolla@10.72.0.14:~
+#   ssh kakolla@10.72.0.14
+#   bash ~/carc_bootstrap.sh
+#
+# Safe to run again: every step checks for its own result first, so a run that
+# died halfway picks up where it stopped. The model downloads are the slow part,
+# about 12GB.
+
+set -euo pipefail
+
+PROJECT=/project2/jbouteil_621/$USER/pgraph
+REPO=$PROJECT/readable
+export OLLAMA_MODELS=$PROJECT/ollama-models
+export PATH=$PROJECT/ollama/bin:$PATH
+
+say() { echo; echo "=== $* ==="; }
+
+say "project space"
+mkdir -p "$PROJECT/ollama" "$OLLAMA_MODELS"
+df -h "$PROJECT" | tail -1
+
+say "ollama"
+if [ -x "$PROJECT/ollama/bin/ollama" ]; then
+    echo "already installed"
+else
+    curl -fL https://ollama.com/download/ollama-linux-amd64.tgz \
+        | tar -xz -C "$PROJECT/ollama"
+fi
+ollama --version
+
+say "ollama server"
+if curl -sf http://127.0.0.1:11434/api/tags >/dev/null; then
+    echo "already running"
+else
+    nohup ollama serve > "$PROJECT/ollama-serve.log" 2>&1 &
+    for attempt in $(seq 1 60); do
+        if curl -sf http://127.0.0.1:11434/api/tags >/dev/null; then
+            echo "up after ${attempt}s"
+            break
+        fi
+        if [ "$attempt" -eq 60 ]; then
+            echo "server did not start, see $PROJECT/ollama-serve.log" >&2
+            exit 1
+        fi
+        sleep 1
+    done
+fi
+
+say "models, about 12GB"
+for model in qwen3.5:9b nomic-embed-text gemma2:9b; do
+    if ollama list | grep -q "^${model%%:*}"; then
+        echo "$model already pulled"
+    else
+        ollama pull "$model"
+    fi
+done
+ollama list
+
+say "repo"
+if [ -d "$REPO/.git" ]; then
+    git -C "$REPO" pull --ff-only
+else
+    git clone -b testing https://github.com/NESCOM-Lab/readable "$REPO"
+fi
+cd "$REPO"
+
+say "toolchain"
+# Module names differ between clusters, so take whatever rust and python the
+# system offers rather than guessing one name.
+module purge 2>/dev/null || true
+for name in rust rust/1.75.0 gcc; do
+    module load "$name" 2>/dev/null && echo "loaded $name" || true
+done
+command -v cargo  >/dev/null || { echo "no cargo on PATH, run 'module avail rust'" >&2; exit 1; }
+command -v python3 >/dev/null || { echo "no python3 on PATH, run 'module avail python'" >&2; exit 1; }
+cargo --version
+python3 --version
+
+say "build"
+cargo build --release
+
+say "corpus"
+mkdir -p papers logs
+cp Benchmark_Suite/source/PMC3283992.xml papers/maday2012.xml
+
+# The benchmark fingerprints its own source; a mismatch means the evidence
+# locators no longer point where the gold says they do.
+EXPECTED=9517e5e8a026b6aeec60b2c5553e93f7556f0b0d4f4afc934f0e6865120e4b48
+ACTUAL=$(sha256sum papers/maday2012.xml | cut -d' ' -f1)
+if [ "$ACTUAL" != "$EXPECTED" ]; then
+    echo "corpus sha256 mismatch" >&2
+    echo "  expected $EXPECTED" >&2
+    echo "  actual   $ACTUAL" >&2
+    exit 1
+fi
+echo "sha256 matches the benchmark manifest"
+
+./target/release/pgraph index maday2012
+python3 analysis/embed.py maday2012
+
+say "questions"
+python3 analysis/benchmark_to_questions.py \
+    --workspace papers/maday2012 --track XML --drop-unfindable \
+    --out /tmp/questions_check.json
+
+say "done"
+echo "repo:    $REPO"
+echo "next:    cd $REPO && sbatch analysis/carc_job.slurm"
+echo "or try it interactively first:"
+echo "  salloc --account=jbouteil_621 --partition=gpu --gres=gpu:a100:1 \\"
+echo "         --cpus-per-task=8 --mem=32G --time=1:00:00"
+echo "  bash analysis/carc_job.slurm"
