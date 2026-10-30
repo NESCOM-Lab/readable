@@ -72,6 +72,16 @@ for model in qwen3.5:9b nomic-embed-text gemma2:9b; do
     fi
 done
 
+# The workspace is built by the bootstrap, but rebuild whatever is missing so
+# this job does not depend on which setup steps happened to finish.
+if [ ! -f papers/maday2012/units.json ]; then
+    ./target/release/pgraph parse papers/maday2012.xml -o papers/maday2012
+    ./target/release/pgraph index papers/maday2012
+fi
+if [ ! -s papers/maday2012/embeddings.json ]; then
+    python3 analysis/embed.py papers/maday2012
+fi
+
 OUT=results/$(date +%Y-%m-%d)-carc
 mkdir -p "$OUT"
 
