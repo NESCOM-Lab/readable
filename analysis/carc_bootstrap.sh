@@ -94,19 +94,34 @@ fi
 cd "$REPO"
 
 say "toolchain"
-# Module names differ between clusters, so take whatever rust and python the
-# system offers rather than guessing one name.
-module purge 2>/dev/null || true
-for name in rust rust/1.75.0 gcc; do
-    module load "$name" 2>/dev/null && echo "loaded $name" || true
-done
-command -v cargo  >/dev/null || { echo "no cargo on PATH, run 'module avail rust'" >&2; exit 1; }
-command -v python3 >/dev/null || { echo "no python3 on PATH, run 'module avail python'" >&2; exit 1; }
+# No module purge here. Purging drops the python module the login shell already
+# has, leaving the system python 3.6, which is too old to run the harness.
+module load gcc 2>/dev/null || true
+module load python/3.11.9 2>/dev/null || module load python 2>/dev/null || true
+
+# Discovery has no rust module. rustup needs no root, but its lock files do not
+# work on the VAST-backed project filesystem, so it lives in home.
+export PATH=$HOME/.cargo/bin:$PATH
+if ! command -v cargo >/dev/null; then
+    echo "installing rustup into \$HOME/.cargo"
+    curl -fsSL https://sh.rustup.rs | sh -s -- -y --no-modify-path
+fi
+
+command -v cargo >/dev/null || { echo "cargo still not on PATH" >&2; exit 1; }
 cargo --version
+
+PYTHON_VERSION=$(python3 -c 'import sys; print("%d%02d" % sys.version_info[:2])')
+if [ "$PYTHON_VERSION" -lt 309 ]; then
+    echo "python3 is $(python3 --version), too old; run 'module load python/3.11.9'" >&2
+    exit 1
+fi
 python3 --version
 
 say "build"
-cargo build --release
+# Login nodes cap how many threads one user may spawn, and rustc and the linker
+# both exceed it: the build dies with 'Resource temporarily unavailable'. Keep
+# the job count down, and run this on a compute node if it still fails.
+cargo build --release -j 4
 
 say "corpus"
 mkdir -p papers logs

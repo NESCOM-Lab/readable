@@ -34,7 +34,12 @@ if [ -d /scratch1 ]; then
     mkdir -p "$TMPDIR"
 fi
 
+module load gcc 2>/dev/null || true
+module load python/3.11.9 2>/dev/null || module load python 2>/dev/null || true
+export PATH=$HOME/.cargo/bin:$PATH
+
 echo "node       $(hostname)"
+echo "python     $(python3 --version 2>&1)"
 echo "gpu        $(nvidia-smi --query-gpu=name,memory.total --format=csv,noheader)"
 echo "started    $(date)"
 
