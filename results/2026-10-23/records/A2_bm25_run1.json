@@ -1,0 +1,22 @@
+{
+  "answer": "Based on the provided excerpts, autophagosomes preferentially initiate in the **distal tip of the neurite** in primary neurons.\n\nThe text states: \"Autophagosomes initiate in the distal tip of the neurite, where pronounced ringlike structures accumulate\" and further clarifies that \"in primary neurons, autophagosome precursors are generated distally.\" This is described as being distinct from smaller, less polarized cells where autophagosomes form throughout the cytosol.",
+  "prompt_tokens": 855,
+  "output_tokens": 103,
+  "seconds": 6.4,
+  "context_chars": 3287,
+  "context_text": "[Figure 1.] Arrowheads denote the accumulation of GFP-LC3\u2013positive puncta. (B) Autophagosomes initiate in the distal tip of the neurite, where pronounced ringlike structures accumulate (arrowheads). (C) Time series of autophagosome biogenesis; arrowheads denote the appearance and growth of GFP-LC3\u2013positive puncta into a ring (Video 1).\n\n[Distal initiation followed by robust retrograde transport of autophagosomes in primary neurons] This spatial regulation of autophagosome biogenesis in primary neurons is distinct from observations in smaller, less polarized cells in which autophagosomes form throughout the cytosol (Jahreiss et al., 2008). The origin of the membrane that forms the distal LC3-positive rings remains to be determined. Possible sources include endocytosed plasma membrane, ER, mitochondria, or Golgi membranes (Hollenbeck, 1993; Hayashi-Nishino et al., 2009; Hailey et al., 2010; Ravikumar et al., 2010; van der Vaart and Reggiori, 2010; Yen et al., 2010).\n\n[Distal initiation followed by robust retrograde transport of autophagosomes in primary neurons] Thus, in primary neurons, autophagosome precursors are generated distally. We have not observed biogenesis along the axon but cannot rule out initiation in the cell body caused by high levels of autofluorescence that limit our resolution. This spatial regulation of autophagosome biogenesis in primary neurons is distinct from observations in smaller, less polarized cells in which autophagosomes form throughout the cytosol (Jahreiss et al., 2008).\n\n[Distal initiation followed by robust retrograde transport of autophagosomes in primary neurons] To monitor the dynamics of autophagosomes in primary neurons, we isolated dorsal root ganglion (DRG) neurons from transgenic mice expressing the autophagosome marker GFP-LC3 (Mizushima et al., 2004). After 2 d in vitro, DRG neurons extend neurites \u223c1,000 \u00b5m in length that are tau positive (Perlson et al., 2009). Microtubules in the neurite are uniformly polarized with plus ends outward as indicated by the directionality of the plus-tip protein EB3 (Fig. S1 A).\n\n[Introduction] Autophagy is an essential pathway in postmitotic cells, such as neurons, cells that are particularly susceptible to the accumulation of defective proteins and organelles. Neuron-specific disruption of autophagy results in neurodegeneration (Hara et al., 2006; Komatsu et al., 2006). Defects in autophagy have been observed in multiple models of neurodegenerative disease, including Alzheimer\u2019s, Huntington\u2019s, and amyotrophic lateral sclerosis (ALS; Rubinsztein et al., 2005; Ventruti and Cuervo, 2007; Mari\u00f1o et al., 2011).\n\n[Distal initiation followed by robust retrograde transport of autophagosomes in primary neurons] Autophagosome transport in neurons is also distinct from motility in nonneuronal cells. In both normal rat kidney and PC12 cells, LC3 motility is primarily bidirectional (Jahreiss et al., 2008; Yang et al., 2008, 2011), unlike the characteristic robust retrograde transport we have visualized along the axons of primary neurons (this study; Lee et al., 2011).",
+  "retrieved_from": [
+    "fig1/w2",
+    "Sec3/p4/w2",
+    "Sec3/p4/w1",
+    "Sec3/p1/w1",
+    "Sec1/p2/w1",
+    "Sec3/p7/w2"
+  ],
+  "question_id": "A2",
+  "condition": "bm25",
+  "run": 1,
+  "model": "qwen3.5:9b",
+  "workspace": "maday2012",
+  "observation_budget": 20000
+}

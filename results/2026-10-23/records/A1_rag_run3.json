@@ -1,0 +1,19 @@
+{
+  "answer": "Based on the provided excerpts, the autophagy-related gene conditionally deleted in neural cells is **Atg5** (autophagy-related 5). The text states: \"Mice deficient for Atg5 (autophagy-related 5) specifically in neural cells develop progressive deficits in motor function...\"",
+  "prompt_tokens": 357,
+  "output_tokens": 64,
+  "seconds": 3.5,
+  "context_chars": 1701,
+  "context_text": "[abstract] Autophagy may have a protective role against the development of a number of neurodegenerative diseases. Here we report that loss of autophagy causes neurodegeneration even in the absence of any disease-associated mutant proteins. Mice deficient for Atg5 (autophagy-related 5) specifically in neural cells develop progressive deficits in motor function that are accompanied by the accumulation of cytoplasmic inclusion bodies in neurons.\n\n[abstract] Mice deficient for Atg5 (autophagy-related 5) specifically in neural cells develop progressive deficits in motor function that are accompanied by the accumulation of cytoplasmic inclusion bodies in neurons. In Atg5-/- cells, diffuse, abnormal intracellular proteins accumulate, and then form aggregates and inclusions. These results suggest that the continuous clearance of diffuse cytosolic proteins through basal autophagy is important for preventing the accumulation of abnormal proteins, which can disrupt neural function and ultimately lead to neurodegeneration.\n\n[abstract] Autophagy is an intracellular bulk degradation process through which a portion of the cytoplasm is delivered to lysosomes to be degraded. Although the primary role of autophagy in many organisms is in adaptation to starvation, autophagy is also thought to be important for normal turnover of cytoplasmic contents, particularly in quiescent cells such as neurons. Autophagy may have a protective role against the development of a number of neurodegenerative diseases.",
+  "retrieved_from": [
+    "abstract/w2",
+    "abstract/w3",
+    "abstract/w1"
+  ],
+  "question_id": "A1",
+  "condition": "rag",
+  "run": 3,
+  "model": "qwen3.5:9b",
+  "workspace": "hara2006",
+  "observation_budget": 20000
+}

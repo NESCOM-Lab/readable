@@ -1,0 +1,14 @@
+{
+  "answer": "In the seminal study by **Hara et al.** (published in *Nature* in 2006, titled \"Chaperone-mediated autophagy is essential for endoplasmic reticulum-associated degradation\"), the researchers investigated the role of specific autophagy genes in neural cells.\n\nThe study conditionally deleted the gene **Atg5** (autophagy-related 5) specifically in neural cells (using a Cre-LoxP system driven by a neural-specific promoter). The deletion of *Atg5* led to the accumulation of autophagic substrates and ultimately caused neurodegeneration and early death in the mice, demonstrating that autophagy is essential for neuronal survival.\n\n**Answer:** The gene conditionally deleted in neural cells was **Atg5**.",
+  "prompt_tokens": 54,
+  "output_tokens": 162,
+  "seconds": 6.4,
+  "context_chars": 0,
+  "context_text": "",
+  "question_id": "A1",
+  "condition": "closedbook",
+  "run": 3,
+  "model": "qwen3.5:9b",
+  "workspace": "hara2006",
+  "observation_budget": 20000
+}

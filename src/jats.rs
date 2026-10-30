@@ -43,6 +43,8 @@ pub fn parse(xml: &str, source: &str) -> Result<Paper, String> {
         }
     }
 
+    assign_missing_ids(&mut body.sections);
+
     // Figures and tables are not always inside <body>; PMC often collects
     // them in a <floats-group> at the end, so scan the whole article.
     for node in root.descendants() {
@@ -111,6 +113,43 @@ fn author_name(contrib: Node) -> Option<String> {
 }
 
 /// Parse a <sec>, recursing into nested subsections.
+/// Give every section an id, since the 'id' attribute is optional in JATS and
+/// some journals leave it off entirely. Without one a section cannot be named
+/// in a query or cited in an answer, so the reader has no way to ask for it.
+/// Ids already in the file are kept; the generated ones fill the gaps around
+/// them in document order.
+fn assign_missing_ids(sections: &mut [Section]) {
+    let mut taken = Vec::new();
+    collect_ids(sections, &mut taken);
+
+    let mut next = 1;
+    fill_ids(sections, &taken, &mut next);
+}
+
+fn collect_ids(sections: &[Section], taken: &mut Vec<String>) {
+    for section in sections {
+        if let Some(id) = &section.id {
+            taken.push(id.clone());
+        }
+        collect_ids(&section.subsections, taken);
+    }
+}
+
+fn fill_ids(sections: &mut [Section], taken: &[String], next: &mut usize) {
+    for section in sections {
+        if section.id.is_none() {
+            let mut candidate = format!("Sec{next}");
+            while taken.iter().any(|id| *id == candidate) {
+                *next += 1;
+                candidate = format!("Sec{next}");
+            }
+            section.id = Some(candidate);
+            *next += 1;
+        }
+        fill_ids(&mut section.subsections, taken, next);
+    }
+}
+
 fn parse_section(sec: Node) -> Section {
     let mut section = Section {
         id: sec.attribute("id").map(str::to_string),
@@ -122,7 +161,7 @@ fn parse_section(sec: Node) -> Section {
         match tag(child) {
             "title" => section.title = Some(inner_text(child)),
             "p" => section.paragraphs.push(Paragraph {
-                text: inner_text(child),
+                text: paragraph_body_text(child),
                 citations: citation_ids(child),
                 provenance: element_path(child),
             }),
@@ -236,6 +275,32 @@ fn inner_text(node: Node) -> String {
     text.split_whitespace().collect::<Vec<_>>().join(" ")
 }
 
+/// Flatten a paragraph to prose, leaving out the things that are not prose.
+/// Figure and table captions are collected into 'Body::figures' and
+/// 'Body::tables', so inlining them here would duplicate the caption and run it
+/// onto the end of the preceding sentence. Formulas carry a TeX and a MathML
+/// copy of themselves, which flatten into pages of '\documentclass' preamble.
+fn paragraph_body_text(paragraph: Node) -> String {
+    let mut text = String::new();
+    collect_prose(paragraph, &mut text);
+    text.split_whitespace().collect::<Vec<_>>().join(" ")
+}
+
+fn collect_prose(node: Node, text: &mut String) {
+    for child in node.children() {
+        if child.is_text() {
+            if let Some(chunk) = child.text() {
+                text.push_str(chunk);
+            }
+        } else if !SKIPPED.contains(&tag(child)) {
+            collect_prose(child, text);
+        }
+    }
+}
+
+/// Elements inside a <p> whose text is not part of the sentence around it.
+const SKIPPED: [&str; 4] = ["fig", "table-wrap", "disp-formula", "inline-formula"];
+
 /// Text of every innermost element, joined with spaces. Used for
 /// <element-citation>, where the markup carries the structure and there is
 /// no literal whitespace between fields like surname and given-names.
@@ -304,6 +369,34 @@ mod tests {
     use super::*;
 
     const SAMPLE: &str = include_str!("../tests/fixtures/sample_jats.xml");
+
+    #[test]
+    fn sections_without_an_id_attribute_still_get_one() {
+        // The 'id' attribute is optional in JATS and some journals leave it
+        // off, which would otherwise leave a section with no way to name it.
+        let xml = r#"<article><body>
+            <sec><title>Introduction</title><p>One.</p></sec>
+            <sec id="keepme"><title>Results</title><p>Two.</p>
+                <sec><title>Detail</title><p>Three.</p></sec>
+            </sec>
+        </body></article>"#;
+
+        let paper = parse(xml, "test.xml").expect("parses");
+        let ids: Vec<Option<&str>> = paper
+            .body
+            .sections
+            .iter()
+            .map(|section| section.id.as_deref())
+            .collect();
+
+        assert_eq!(ids, vec![Some("Sec1"), Some("keepme")]);
+        // An id already in the file is left alone, and the generated ones fill
+        // in around it without colliding.
+        assert_eq!(
+            paper.body.sections[1].subsections[0].id.as_deref(),
+            Some("Sec2")
+        );
+    }
 
     #[test]
     fn parses_sample_and_produces_valid_json() {

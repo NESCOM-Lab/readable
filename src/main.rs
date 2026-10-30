@@ -6,6 +6,7 @@ use clap::{Parser, Subcommand};
 mod jats;
 mod model;
 mod query;
+mod units;
 mod workspace;
 
 /// Convert a JATS XML paper into a workspace.
@@ -30,6 +31,14 @@ enum Command {
         #[command(subcommand)]
         query: query::Query,
     },
+    /// Write the retrieval units for a parsed paper as JSON.
+    Index {
+        /// Workspace directory, or a JATS XML file.
+        path: PathBuf,
+        /// Output file (defaults to <workspace>/units.json).
+        #[arg(short, long)]
+        out: Option<PathBuf>,
+    },
 }
 
 fn main() {
@@ -38,6 +47,7 @@ fn main() {
     let result = match &cli.command {
         Command::Parse { input, out } => run_parse(input, out.as_deref()),
         Command::Query { query } => query::run(query),
+        Command::Index { path, out } => run_index(path, out.as_deref()),
     };
 
     if let Err(message) = result {
@@ -82,5 +92,24 @@ fn run_parse(input: &std::path::Path, out: Option<&std::path::Path>) -> Result<(
         paper.body.citations.len(),
         out_dir.display(),
     );
+    Ok(())
+}
+
+fn run_index(path: &std::path::Path, out: Option<&std::path::Path>) -> Result<(), String> {
+    let paper = query::load(path)?;
+    let units = units::build(&paper);
+
+    let out_path = match out {
+        Some(given) => given.to_path_buf(),
+        None if path.is_dir() => path.join("units.json"),
+        None => PathBuf::from("units.json"),
+    };
+
+    let json = serde_json::to_string_pretty(&units)
+        .map_err(|error| format!("could not serialize units: {error}"))?;
+    std::fs::write(&out_path, json)
+        .map_err(|error| format!("could not write {}: {error}", out_path.display()))?;
+
+    println!("wrote {} units to {}", units.len(), out_path.display());
     Ok(())
 }

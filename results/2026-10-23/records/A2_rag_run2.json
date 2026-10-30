@@ -1,0 +1,22 @@
+{
+  "answer": "Based on the provided excerpts, autophagosome initiation is a constitutive and spatially restricted process in the **distal axon**. The text explicitly states that \"autophagosome precursors are generated distally\" and that they have \"not observed biogenesis along the axon,\" noting instead that initiation occurs in the distal region.",
+  "prompt_tokens": 676,
+  "output_tokens": 71,
+  "seconds": 3.3,
+  "context_chars": 2903,
+  "context_text": "[Introduction] Here, we track the dynamics of autophagosomes in real time along the axons of primary neurons. We find that autophagosome initiation is a constitutive and spatially restricted process in the distal axon. Autophagosomes engulf both cytosolic and organelle cargo and are driven by dynein and kinesin motors.\n\n[Distal initiation followed by robust retrograde transport of autophagosomes in primary neurons] Thus, in primary neurons, autophagosome precursors are generated distally. We have not observed biogenesis along the axon but cannot rule out initiation in the cell body caused by high levels of autofluorescence that limit our resolution. This spatial regulation of autophagosome biogenesis in primary neurons is distinct from observations in smaller, less polarized cells in which autophagosomes form throughout the cytosol (Jahreiss et al., 2008).\n\n[Introduction] Defects in autophagy have been observed in multiple models of neurodegenerative disease, including Alzheimer\u2019s, Huntington\u2019s, and amyotrophic lateral sclerosis (ALS; Rubinsztein et al., 2005; Ventruti and Cuervo, 2007; Mari\u00f1o et al., 2011). However, the biogenesis, maturation, and dynamics of autophagosomes in neurons are only poorly understood. Most studies to date have focused on model systems that lack the extended and highly polarized processes that characterize neurons (Jahreiss et al., 2008; Kimura et al., 2008).\n\n[Introduction] We find that autophagosome dynamics remain robust in a mouse model of neurodegenerative disease, but autophagosome flux is not increased even as protein aggregates accumulate along the axon. Thus, in primary neurons, the dynamics of the autophagy pathway are robust and spatially specific but may not be efficiently up-regulated in response to increased protein aggregation.\n\n[Maturation of autophagosomes moving distally to proximally along the axon] This is supported by our observations that although distal autophagosomes are largely negative for LAMP1 and LysoTracker red, autophagosomes along the axon are positive for both markers. As they approach the cell soma, autophagosomes become increasingly acidified, as supported by our experiments with the dual-color LC3 reporter. This maturation is accompanied by a change in motility.\n\n[Introduction] Autophagosomes engulf both cytosolic and organelle cargo and are driven by dynein and kinesin motors. Once formed, autophagosomes undergo a spatially defined maturation as they move processively along the axon toward the cell body. We find that autophagosome dynamics remain robust in a mouse model of neurodegenerative disease, but autophagosome flux is not increased even as protein aggregates accumulate along the axon.",
+  "retrieved_from": [
+    "Sec1/p3/w1",
+    "Sec3/p4/w1",
+    "Sec1/p2/w2",
+    "Sec1/p3/w3",
+    "Sec5/p6/w2",
+    "Sec1/p3/w2"
+  ],
+  "question_id": "A2",
+  "condition": "rag",
+  "run": 2,
+  "model": "qwen3.5:9b",
+  "workspace": "maday2012",
+  "observation_budget": 20000
+}

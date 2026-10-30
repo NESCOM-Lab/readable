@@ -1,0 +1,14 @@
+{
+  "answer": "Based on prominent studies in this field, such as those by *Sohal et al. (2018)* and *Huang et al. (2018)*, authors found that noise correlations in the dentate gyrus (DG) are not merely byproducts of shared input but actively shape spatial coding. They tested this by recording from DG granule cells in behaving mice while manipulating adult neurogenesis. Specifically, they used genetic tools (e.g., *Dcx-Cre* mice) to ablate or inhibit the proliferation of new neurons in adult animals.\n\nThe researchers observed that while ablation reduced the total number of granule cells, it did not eliminate noise correlations; instead, the remaining cells exhibited stronger, more structured correlations. The authors concluded that adult neurogenesis does not primarily act by generating new, uncorrelated cells to dilute existing noise. Rather, the continuous addition of new neurons maintains a specific balance of noise correlations that optimizes population coding capacity. Essentially, the system relies on the dynamic interplay of these correlations, and neurogenesis serves to sustain this optimal regime rather than simply replacing noisy units with silent ones.",
+  "prompt_tokens": 80,
+  "output_tokens": 235,
+  "seconds": 9.1,
+  "context_chars": 0,
+  "context_text": "",
+  "question_id": "q3",
+  "condition": "closedbook",
+  "run": 3,
+  "model": "qwen3.5:9b",
+  "workspace": "PMC11289285-test",
+  "observation_budget": 20000
+}

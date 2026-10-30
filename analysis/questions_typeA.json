@@ -1,0 +1,114 @@
+{
+  "_comment": "Type A (atomic retrieval) questions from 'Graph RAG MVP Evaluation Questions and Benchmarking', v02 rev 2026.10.07. Questions and reference answers are taken verbatim from Table 1 of that document. Facets are this repo's deterministic restatement of each reference answer: one regex family per content point that the answer has to contain. Each question names its own paper, since the three Type A questions are about three different papers.",
+  "workspace": "papers/maday2012",
+  "questions": [
+    {
+      "id": "A1",
+      "workspace": "papers/hara2006",
+      "question": "Which autophagy-related gene was conditionally deleted in neural cells in the Hara et al. study?",
+      "reference_answer": "Atg5 was deleted in neural cells.",
+      "facets": [
+        {
+          "id": "gene_atg5",
+          "patterns": [
+            "\\bAtg[\\s-]?5\\b"
+          ],
+          "source_section": "abstract"
+        },
+        {
+          "id": "neural_cells",
+          "patterns": [
+            "neural cells?",
+            "\\bneurons?\\b",
+            "central nervous system"
+          ],
+          "source_section": "abstract"
+        },
+        {
+          "id": "was_deleted",
+          "patterns": [
+            "deficien",
+            "delet",
+            "knock[\\s-]?out",
+            "loss of",
+            "conditional"
+          ],
+          "source_section": "abstract"
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "workspace": "papers/maday2012",
+      "question": "Where do autophagosomes preferentially initiate in the primary-neuron system studied by Maday et al.?",
+      "reference_answer": "They preferentially initiate in the distal axon, near the neurite or axonal tip.",
+      "facets": [
+        {
+          "id": "distal_axon",
+          "patterns": [
+            "distal axon",
+            "distally",
+            "distal (?:end|region|tip)"
+          ],
+          "source_section": "Sec3"
+        },
+        {
+          "id": "initiation",
+          "patterns": [
+            "initiat",
+            "form(?:ation|ed|s)?\\b",
+            "biogenesis"
+          ],
+          "source_section": "Sec3"
+        }
+      ],
+      "facet_note": "The reference answer's 'near the neurite or axonal tip' was dropped as a scored facet. It restates 'distal axon' rather than adding a content point, and matching it needed the literal word 'tip', so an answer saying 'the distal end of the axon' was marked wrong for using a synonym. That measures vocabulary, not retrieval."
+    },
+    {
+      "id": "A3",
+      "workspace": "papers/tsong2023",
+      "question": "How did the rate of autophagosome formation change between young and advanced-aged neurons in Tsong et al.?",
+      "reference_answer": "It decreased markedly, with an approximately 70 percent reduction between neurons from young and advanced-aged mice in the reported DRG-neuron assay.",
+      "facets": [
+        {
+          "id": "direction_decrease",
+          "patterns": [
+            "decreas",
+            "deficit",
+            "\\bdrop",
+            "reduc",
+            "declin",
+            "lower"
+          ],
+          "source_section": "s0002-s2001"
+        },
+        {
+          "id": "magnitude_70_percent",
+          "patterns": [
+            "70\\s*%",
+            "70 percent",
+            "seventy percent"
+          ],
+          "source_section": "s0002-s2001"
+        },
+        {
+          "id": "young_vs_advanced_aged",
+          "patterns": [
+            "advanced[\\s-]?aged",
+            "young.{0,80}aged"
+          ],
+          "source_section": "s0002-s2001"
+        },
+        {
+          "id": "drg_neurons",
+          "patterns": [
+            "\\bDRG\\b",
+            "dorsal root ganglion",
+            "dorsal root ganglia"
+          ],
+          "source_section": "s0002-s2001"
+        }
+      ]
+    }
+  ]
+}

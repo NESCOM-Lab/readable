@@ -1,0 +1,8 @@
+[chain] type A finished with       54 records at Fri Oct 23 02:23:38 PDT 2026
+[chain] 1/3 LightRAG over the Type A papers
+[chain] lightrag exit=143 at Fri Oct 23 02:37:42 PDT 2026
+[chain] 2/3 six-condition matrix on PMC11289285
+[chain] matrix exit=0 at Fri Oct 23 03:09:30 PDT 2026
+[chain] 3/3 LightRAG on PMC11289285
+[chain] lightrag2 exit=0 at Fri Oct 23 03:42:46 PDT 2026
+[chain] ALL DONE Fri Oct 23 03:42:46 PDT 2026

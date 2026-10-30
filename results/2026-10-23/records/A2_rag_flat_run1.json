@@ -1,0 +1,22 @@
+{
+  "answer": "Based on the provided excerpts, autophagosomes preferentially initiate in the **distal axon**, specifically within **bulbous regions near the distal end of the axon, \u223c1 mm from the cell soma**.\n\nThe text states that \"autophagosome initiation is a constitutive and spatially restricted process in the distal axon\" and that \"autophagosome precursors are generated distally.\" The authors note that they \"have not observed biogenesis along the axon\" but also \"cannot rule out initiation in the cell body caused by high levels of autofluorescence that limit our resolution.\"",
+  "prompt_tokens": 868,
+  "output_tokens": 130,
+  "seconds": 7.4,
+  "context_chars": 3580,
+  "context_text": "[sec1_introduction.md] Here, we track the dynamics of autophagosomes in real time along the axons of primary neurons. We find that autophagosome initiation is a constitutive and spatially restricted process in the distal axon. Autophagosomes engulf both cytosolic and organelle cargo and are driven by dynein and kinesin motors. Once formed, autophagosomes undergo a spatially defined maturation as they move processively along the axon toward the cell body. We find that autophagosome dynamics remain robust in a mouse model of neurodegenerative disease, but autophagosome flux is not increased even as protein aggregates accumulate along the axon. Thus, in primary neurons, the dynamics of the autophagy pathway are robust and spatially specific but may not be efficiently up-regulated in response to increased protein aggregation.\n\n[sec2_results_and_discussion.md] ## Distal initiation followed by robust retrograde transport of autophagosomes in primary neurons\n\n[sec2_results_and_discussion.md] Thus, in primary neurons, autophagosome precursors are generated distally. We have not observed biogenesis along the axon but cannot rule out initiation in the cell body caused by high levels of autofluorescence that limit our resolution. This spatial regulation of autophagosome biogenesis in primary neurons is distinct from observations in smaller, less polarized cells in which autophagosomes form throughout the cytosol (Jahreiss et al., 2008). The origin of the membrane that forms the distal LC3-positive rings remains to be determined. Possible sources include endocytosed plasma membrane, ER, mitochondria, or Golgi membranes (Hollenbeck, 1993; Hayashi-Nishino et al., 2009; Hailey et al., 2010; Ravikumar et al., 2010; van der Vaart and Reggiori, 2010; Yen et al., 2010).\n\n[sec2_results_and_discussion.md] Cytosolic GFP-LC3 is found throughout the neuron but becomes lipidated and incorporated into autophagosomes upon their formation (Xie and Klionsky, 2007). Imaging the distal tips of neurons revealed the initiation of autophagosome formation. Within bulbous regions near the distal end of the axon, \u223c1 mm from the cell soma, we observed the incorporation of GFP-LC3 into ringlike structures \u223c800 nm in diameter (Fig. 1, A and B). Often, multiple rings were observed to accumulate within a single bulbous region (Fig. 1 B). We identified these ringlike structures as autophagosomes based on their strong LC3-positive signals and the similarity in morphology to the LC3-positive structures seen in vivo in transgenic GFP-LC3 mice (Mizushima et al., 2004).\n\n[sec2_results_and_discussion.md] ## Maturation of autophagosomes moving distally to proximally along the axon\n\n[sec2_results_and_discussion.md] These observations suggest that autophagosomes undergo maturation as they move distally to proximally along the axon (Fig. 5 G). Exit from the distal tip is accompanied by fusion with late endosomes and/or lysosomes. This is supported by our observations that although distal autophagosomes are largely negative for LAMP1 and LysoTracker red, autophagosomes along the axon are positive for both markers. As they approach the cell soma, autophagosomes become increasingly acidified, as supported by our experiments with the dual-color LC3 reporter. This maturation is accompanied by a change in motility. Fully acidified autophagosomes exhibit bidirectional motility.",
+  "retrieved_from": [
+    "sec1_introduction.md",
+    "sec2_results_and_discussion.md",
+    "sec2_results_and_discussion.md",
+    "sec2_results_and_discussion.md",
+    "sec2_results_and_discussion.md",
+    "sec2_results_and_discussion.md"
+  ],
+  "question_id": "A2",
+  "condition": "rag_flat",
+  "run": 1,
+  "model": "qwen3.5:9b",
+  "workspace": "maday2012",
+  "observation_budget": 20000
+}

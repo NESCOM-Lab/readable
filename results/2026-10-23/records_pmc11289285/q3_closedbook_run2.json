@@ -1,0 +1,14 @@
+{
+  "answer": "Based on prominent studies in this field, such as those by Yizhar et al. (2011) and subsequent work by the same group, authors found that noise correlations in the dentate gyrus (DG) are not merely random fluctuations but play a critical role in spatial coding. They tested this by using optogenetics to selectively silence adult-born granule cells while leaving mature cells intact, then recording population activity during spatial navigation tasks.\n\nThe researchers observed that silencing adult-born cells significantly reduced noise correlations within the DG population. Crucially, this reduction impaired the population's ability to encode spatial information, even though the average firing rates of individual neurons remained largely unchanged. The authors concluded that adult neurogenesis acts specifically by generating new neurons with distinct, uncorrelated activity patterns. These new cells decorrelate the population activity, thereby increasing the dimensionality of the neural code and enhancing the DG's capacity to represent complex spatial environments. Thus, the mechanism of adult neurogenesis in spatial coding is fundamentally linked to its ability to modulate noise correlations.",
+  "prompt_tokens": 80,
+  "output_tokens": 215,
+  "seconds": 8.3,
+  "context_chars": 0,
+  "context_text": "",
+  "question_id": "q3",
+  "condition": "closedbook",
+  "run": 2,
+  "model": "qwen3.5:9b",
+  "workspace": "PMC11289285-test",
+  "observation_budget": 20000
+}

@@ -1,0 +1,14 @@
+{
+  "question_id": "q5",
+  "condition": "lightrag",
+  "run": 2,
+  "model": "qwen3.5:9b",
+  "workspace": "PMC11289285-test",
+  "answer": "Sorry, I'm not able to provide an answer to that question.[no-context]",
+  "context_text": "Sorry, I'm not able to provide an answer to that question.[no-context]",
+  "context_chars": 70,
+  "prompt_tokens": 0,
+  "output_tokens": 0,
+  "seconds": 0.0,
+  "mode": "hybrid"
+}

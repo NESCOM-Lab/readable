@@ -1,0 +1,55 @@
+{
+  "benchmark_version": "1.2",
+  "created_date": "2026-10-16",
+  "revision_notes": "Expanded point 8 with A/B/C inputs, Q040 worked example, graph audit, failure diagnosis and a DeepEval scoring example. Question set and scoring are unchanged.",
+  "article_pmcid": "PMC3283992",
+  "question_count": 200,
+  "automation_example": {
+    "script": "examples/score_with_deepeval.py",
+    "instructions": "examples/README.md",
+    "requirements": "examples/requirements.txt",
+    "deepeval_version": "4.3.1",
+    "live_judge_run_performed": false
+  },
+  "diagnostic_protocol": {
+    "markdown": "PMC3283992_diagnostic_protocol.md",
+    "json": "PMC3283992_diagnostic_protocol.json",
+    "example_question_id": "Q040"
+  },
+  "category_counts": {
+    "Metadata": 10,
+    "Context": 10,
+    "Biogenesis": 16,
+    "Transport": 17,
+    "Motors": 18,
+    "Cargo": 16,
+    "Disease model": 13,
+    "Maturation": 20,
+    "Methods": 35,
+    "Supplement": 15,
+    "Synthesis": 15,
+    "Unanswerable": 15
+  },
+  "max_content_points": 405,
+  "input_track_counts": {
+    "XML": 159,
+    "XML+supplement": 41
+  },
+  "sources": [
+    {
+      "file": "source\\PMC3283992.xml",
+      "bytes": 85434,
+      "sha256": "9517e5e8a026b6aeec60b2c5553e93f7556f0b0d4f4afc934f0e6865120e4b48"
+    },
+    {
+      "file": "source\\JCB2012.pdf",
+      "bytes": 1696081,
+      "sha256": "caf17c4533a1bb944d27b86ca7a22c501cf7ad22cda94f248b70e2213ba8bba9"
+    },
+    {
+      "file": "source\\supplementaryFiles.zip",
+      "bytes": 1574078,
+      "sha256": "d39de90c5a68313237fc32e88432b553e5f43a227201e569395e95978d8d2f88"
+    }
+  ]
+}

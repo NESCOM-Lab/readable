@@ -1,0 +1,14 @@
+{
+  "answer": "In adult mice, neurogenesis in the dentate gyrus is manipulated by ablating newborn neurons (e.g., via irradiation or genetic ablation) or enhancing it (e.g., via exercise or enriched environments). Measured effects show that newborn neurons exhibit unique electrophysiological properties, such as high excitability and sparse firing, which are absent in mature neurons.\n\nThe proposed mechanism involves newborn neurons acting as a \"pattern separator.\" Due to their distinct activity patterns and rapid integration into local circuits, they decorrelate similar input patterns, allowing the hippocampus to distinguish between highly similar spatial contexts (e.g., adjacent arms of a water maze). This enhances the precision of spatial memory encoding.\n\nThis view contrasts with prior beliefs that the adult hippocampus relied solely on synaptic plasticity (LTP/LTD) within existing mature circuits for all forms of learning. Earlier models suggested the dentate gyrus was functionally static or that new neurons merely replaced dying ones without functional novelty. Current literature demonstrates that adult neurogenesis provides a dynamic, structural mechanism specifically for resolving spatial ambiguity, a function distinct from general synaptic strengthening.",
+  "prompt_tokens": 91,
+  "output_tokens": 227,
+  "seconds": 8.9,
+  "context_chars": 0,
+  "context_text": "",
+  "question_id": "q1",
+  "condition": "closedbook",
+  "run": 3,
+  "model": "qwen3.5:9b",
+  "workspace": "PMC11289285-test",
+  "observation_budget": 20000
+}

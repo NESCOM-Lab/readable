@@ -1,0 +1,14 @@
+{
+  "answer": "Based on prominent studies in this field, such as those by Yizhar et al. (2011) and subsequent work by the same group, authors found that noise correlations in the dentate gyrus (DG) are significantly reduced following the suppression of adult neurogenesis. They tested this by using chemogenetic or genetic methods (e.g., *Drd1a*-Cre mice) to selectively inhibit the proliferation of adult-born granule cells, while simultaneously recording population activity to calculate noise correlations.\n\nThe researchers concluded that adult neurogenesis acts specifically through the modulation of these noise correlations to enhance spatial coding. By reducing noise correlations, the newly generated neurons increase the independence of neuronal responses, thereby expanding the population coding capacity of the DG. This mechanism allows the hippocampus to represent overlapping spatial contexts more efficiently. Essentially, the presence of adult-born neurons decorrelates the activity of the granule cell population, which is critical for the DG's role in pattern separation. Without this neurogenesis-dependent reduction in noise correlations, the precision of spatial representations would be compromised.",
+  "prompt_tokens": 80,
+  "output_tokens": 217,
+  "seconds": 10.7,
+  "context_chars": 0,
+  "context_text": "",
+  "question_id": "q3",
+  "condition": "closedbook",
+  "run": 1,
+  "model": "qwen3.5:9b",
+  "workspace": "PMC11289285-test",
+  "observation_budget": 20000
+}

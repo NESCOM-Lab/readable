@@ -1,2 +1,13 @@
 target/
 PMC*/
+analysis/.embed_cache/
+analysis/__pycache__/
+analysis/*.log
+
+# downloaded corpora; fetch_paper.py rebuilds them
+papers/
+
+# harness scratch output and superseded runs; kept on disk, not in git
+analysis/results/
+analysis/results_before_clifix/
+analysis/smoke_hybrid/

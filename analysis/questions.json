@@ -1,0 +1,70 @@
+{
+  "workspace": "PMC11289285-test",
+  "_comment": "Rubric for PMC11289285 (Frechou et al. 2024). A facet is one content point the answer should contain, as alternative case-insensitive regexes. 'source_section' is the section the fact comes from, checked at scoring time. The questions are spread across the paper on purpose: q2 is Methods-heavy, q4 and q5 live only in the Discussion.",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Explain how adult neurogenesis improves spatial information encoding in the mouse hippocampus. Include (1) the experimental manipulations, (2) the measured neural effects, (3) the proposed mechanism, and (4) how it contrasts with prior views. Answer in under 200 words.",
+      "facets": [
+        {"id": "manip_enrichment", "patterns": ["enriched environment", "\\bEE\\b", "enrichment"], "source_section": "Sec3"},
+        {"id": "manip_irradiation", "patterns": ["irradiat"], "source_section": "Sec3"},
+        {"id": "manip_chemogenetic", "patterns": ["chemogenetic", "hM4Di", "\\bCNO\\b", "DREADD"], "source_section": "Sec6"},
+        {"id": "effect_spatial_information", "patterns": ["spatial information"], "source_section": "Sec4"},
+        {"id": "effect_calcium_activity", "patterns": ["calcium activity", "Ca2\\+ activity", "activity rates"], "source_section": "Sec5"},
+        {"id": "effect_tuning", "patterns": ["tuning ind", "tuning curve", "place-specific", "spatially selective", "spatial selectivity"], "source_section": "Sec5"},
+        {"id": "mechanism_gain", "patterns": ["\\bgain\\b"], "source_section": "Sec5"},
+        {"id": "contrast_inhibition", "patterns": ["inhibitor", "inhibition"], "source_section": "Sec7"}
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "How did the authors record neural activity and quantify spatial information? Cover the imaging technique, the calcium sensor, the behavioural setup, and the measures used to quantify spatial coding. Answer in under 200 words.",
+      "facets": [
+        {"id": "two_photon", "patterns": ["two-photon", "2-photon", "two photon"], "source_section": "Sec3"},
+        {"id": "sensor_jrgeco", "patterns": ["jRGECO"], "source_section": "Sec3"},
+        {"id": "treadmill", "patterns": ["treadmill"], "source_section": "Sec3"},
+        {"id": "head_fixed", "patterns": ["head-fix", "head fix"], "source_section": "Sec3"},
+        {"id": "linear_decoder", "patterns": ["linear decoder", "decoding accuracy", "decode the position"], "source_section": "Sec3"},
+        {"id": "fisher_information", "patterns": ["Fisher information"], "source_section": "Sec4"},
+        {"id": "von_mises", "patterns": ["von mises"], "source_section": "Sec5"},
+        {"id": "discrimination_threshold", "patterns": ["discrimination threshold"], "source_section": "Sec4"}
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "What did the authors find about the role of noise correlations in dentate gyrus spatial coding, how did they test it, and what did they conclude about whether adult neurogenesis acts through them? Answer in under 200 words.",
+      "facets": [
+        {"id": "method_shuffle", "patterns": ["shuffl"], "source_section": "Sec4"},
+        {"id": "preserved_tuning", "patterns": ["tuning .{0,20}preserved", "preserv", "trial order"], "source_section": "Sec4"},
+        {"id": "no_significant_effect", "patterns": ["not significant", "no significant", "no effect"], "source_section": "Sec4"},
+        {"id": "possibly_detrimental", "patterns": ["detriment"], "source_section": "Sec4"},
+        {"id": "no_switch_by_abns", "patterns": ["not .{0,40}qualitative", "did not induce a switch", "cannot be explained by a qualitative change", "not appear to be qualitatively modulated"], "source_section": "Sec7"}
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "Which previously published studies disagree with these findings, what did those studies report, and what explanations do the authors offer for the disagreement? Answer in under 200 words.",
+      "facets": [
+        {"id": "study_mchugh", "patterns": ["McHugh"], "source_section": "Sec7"},
+        {"id": "study_tuncdemir", "patterns": ["Tuncdemir"], "source_section": "Sec7"},
+        {"id": "finding_increased_firing", "patterns": ["increased firing", "firing rates"], "source_section": "Sec7"},
+        {"id": "finding_sparsity", "patterns": ["sparsity"], "source_section": "Sec7"},
+        {"id": "reason_recording_method", "patterns": ["electrophysiolog", "single unit", "single-unit"], "source_section": "Sec7"},
+        {"id": "reason_genetic_driver", "patterns": ["Nestin", "Ascl1", "genetic driver"], "source_section": "Sec7"},
+        {"id": "reason_information_measure", "patterns": ["mutual information"], "source_section": "Sec7"}
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "What are the main caveats of this study and what control experiments did the authors run to address them? Answer in under 200 words.",
+      "facets": [
+        {"id": "caveat_inflammation", "patterns": ["inflammation"], "source_section": "Sec7"},
+        {"id": "control_microglia", "patterns": ["microglia", "Sholl"], "source_section": "Sec7"},
+        {"id": "control_chemogenetic_replication", "patterns": ["chemogenetic", "silencing"], "source_section": "Sec7"},
+        {"id": "caveat_aav_labeling", "patterns": ["\\bAAV\\b", "labeling approach"], "source_section": "Sec7"},
+        {"id": "control_retrograde", "patterns": ["retrograde"], "source_section": "Sec7"},
+        {"id": "caveat_olfactory_bulb", "patterns": ["olfactory"], "source_section": "Sec7"}
+      ]
+    }
+  ]
+}

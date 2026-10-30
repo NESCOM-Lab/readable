@@ -69,7 +69,7 @@ fn write_json<T: serde::Serialize>(path: &Path, value: &T) -> Result<(), String>
 
 /// '<id>_<slugified title>', falling back to 'sec_<index>' when the section
 /// has neither.
-fn section_file_stem(section: &Section, index: usize) -> String {
+pub(crate) fn section_file_stem(section: &Section, index: usize) -> String {
     let id = section.id.as_deref().map(slugify).unwrap_or_default();
     let title = section.title.as_deref().map(slugify).unwrap_or_default();
 
@@ -91,7 +91,7 @@ fn reference_file_stem(citation: &Citation, index: usize) -> String {
 }
 
 /// Lowercase, spaces to underscores, punctuation stripped.
-fn slugify(title: &str) -> String {
+pub(crate) fn slugify(title: &str) -> String {
     let mut slug = String::new();
     for character in title.chars() {
         if character.is_alphanumeric() {

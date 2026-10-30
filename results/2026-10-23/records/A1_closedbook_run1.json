@@ -1,0 +1,14 @@
+{
+  "answer": "Based on the seminal study by **Hara et al.** published in *Nature* in 2006 (titled \"Suppression of basal autophagy in neural cells causes neurodegenerative disease in mice\"), the autophagy-related gene that was conditionally deleted in neural cells is **Atg7**.\n\nIn this study, the researchers generated mice with a floxed *Atg7* allele and used the Nestin-Cre recombinase system to delete *Atg7* specifically in neural cells (neurons and glia). This deletion led to a significant reduction in autophagy flux, resulting in the accumulation of autophagic vacuoles and the development of a neurodegenerative phenotype characterized by motor neuron loss and paralysis, mimicking aspects of human neurodegenerative diseases like ALS.\n\n**Answer:** The gene is **Atg7**.",
+  "prompt_tokens": 54,
+  "output_tokens": 182,
+  "seconds": 9.8,
+  "context_chars": 0,
+  "context_text": "",
+  "question_id": "A1",
+  "condition": "closedbook",
+  "run": 1,
+  "model": "qwen3.5:9b",
+  "workspace": "hara2006",
+  "observation_budget": 20000
+}

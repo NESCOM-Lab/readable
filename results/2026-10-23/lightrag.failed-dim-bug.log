@@ -1,0 +1,124 @@
+INFO: [] Created new empty graph file: /tmp/lightrag_store/hara2006/graph_chunk_entity_relation.graphml
+INFO:nano-vectordb:Init {'embedding_dim': 768, 'metric': 'cosine', 'storage_file': '/tmp/lightrag_store/hara2006/vdb_entities.json'} 0 data
+INFO:nano-vectordb:Init {'embedding_dim': 768, 'metric': 'cosine', 'storage_file': '/tmp/lightrag_store/hara2006/vdb_relationships.json'} 0 data
+INFO:nano-vectordb:Init {'embedding_dim': 768, 'metric': 'cosine', 'storage_file': '/tmp/lightrag_store/hara2006/vdb_chunks.json'} 0 data
+INFO: Role LLM Configuration (initialized):
+INFO:  - extract: None/None, host=None, max_async=1, timeout=240
+INFO:  - keyword: None/None, host=None, max_async=1, timeout=240
+INFO:  - query: None/None, host=None, max_async=1, timeout=240
+INFO:  - vlm: None/None, host=None, max_async=1, timeout=240
+INFO: [] Process 7846 KV load full_docs with 0 records
+INFO: [] Process 7846 KV load text_chunks with 0 records
+INFO: [] Process 7846 KV load full_entities with 0 records
+INFO: [] Process 7846 KV load full_relations with 0 records
+INFO: [] Process 7846 KV load entity_chunks with 0 records
+INFO: [] Process 7846 KV load relation_chunks with 0 records
+INFO: [] Process 7846 KV load llm_response_cache with 0 records
+INFO: [] Process 7846 doc status load doc_status with 0 records
+[index] hara2006: building the graph, this is the slow part
+INFO: Processing 1 document(s)
+INFO: Parsing (native): doc-acd241f32b91373e412dc94d8de8604b
+INFO: Extracting stage 1/1: unknown_source
+INFO: Processing d-id: doc-acd241f32b91373e412dc94d8de8604b
+INFO: Chunking F(legacy): size=1200, split_only=False, overlap=100, doc_id: doc-acd241f32b91373e412dc94d8de8604b
+INFO: extract LLM func: 1 new workers initialized (Timeouts: Func: 240s, Worker: 480s, Health Check: 495s)
+INFO:  == LLM cache == saving: default:extract:2bde9b0cd42325fc72e59bd046475625
+INFO:  == LLM cache == saving: default:extract:c53ddb64f30e45785db1ea8464f135db
+INFO: Chunk 1 of 1 extracted 17 Ent + 21 Rel doc-acd241f32b91373e412dc94d8de8604b-chunk-000
+INFO: Merging stage 1/1: unknown_source
+INFO: Phase 0: Writing recovery indexes for doc-acd241f32b91373e412dc94d8de8604b: 17 candidate entities, 21 candidate relations
+INFO: Phase 1: Processing 17 entities from doc-acd241f32b91373e412dc94d8de8604b (async: 2)
+INFO: Phase 2: Processing 21 relations from doc-acd241f32b91373e412dc94d8de8604b (async: 2)
+INFO: Upserting relation VDB: `Autophagy->Cytoplasm`
+INFO: Upserting relation VDB: `Autophagy->Lysosomes`
+INFO: Upserting relation VDB: `Autophagy->Neural Cells`
+INFO: Upserting relation VDB: `Autophagy->Neurodegenerative Disease`
+INFO: Upserting relation VDB: `Autophagy->Starvation`
+INFO: Upserting relation VDB: `Abnormal Intracellular Proteins->Autophagy`
+INFO: Upserting relation VDB: `Abnormal Intracellular Proteins->Cytoplasmic Inclusion Bodies`
+INFO: Upserting relation VDB: `Abnormal Intracellular Proteins->Aggregates And Inclusions`
+INFO: Upserting relation VDB: `Abnormal Intracellular Proteins->Neural Function`
+INFO: Upserting relation VDB: `Abnormal Intracellular Proteins->Neurodegenerative Disease`
+INFO: Upserting relation VDB: `Atg5->Mice`
+INFO: Upserting relation VDB: `Atg5->Neural Cells`
+INFO: Upserting relation VDB: `Mice->Neurodegenerative Disease`
+INFO: Upserting relation VDB: `Atg5->Motor Function`
+INFO: Upserting relation VDB: `Autophagy->Quiescent Cells`
+INFO: Upserting relation VDB: `Autophagy->Neurons`
+INFO: Upserting relation VDB: `Neurons->Quiescent Cells`
+INFO: Upserting relation VDB: `Autophagy->Disease-Associated Mutant Proteins`
+INFO: Upserting relation VDB: `Neural Cells->Quiescent Cells`
+INFO: Upserting relation VDB: `Autophagy->Basal Autophagy`
+INFO: Upserting relation VDB: `Abnormal Intracellular Proteins->Basal Autophagy`
+INFO: Phase 2 relation processing completed for doc-acd241f32b91373e412dc94d8de8604b: edges=21 added_entities=0
+INFO: Completed merging: 17 entities, 0 extra entities, 21 relations
+INFO: [] entities flush: embedding 17 vectors in 2 batch(es) (batch_num=10)
+INFO: [] relationships flush: applied 0 deferred deletes (21 queued, 0 awaiting save)
+INFO: [] relationships flush: embedding 21 vectors in 3 batch(es) (batch_num=10)
+INFO: [] chunks flush: embedding 1 vectors in 1 batch(es) (batch_num=10)
+INFO: Embedding func: 8 new workers initialized (Timeouts: Func: 30s, Worker: 60s, Health Check: 75s)
+INFO: [] Writing graph with 17 nodes, 21 edges
+ERROR: Embedding func: Error in decorated function for task 4614131728_208419.99361175: Embedding dimension mismatch detected: total elements (768) cannot be evenly divided by expected dimension (1024). 
+ERROR: [] Error embedding pending vector ops (upserts=1): Embedding dimension mismatch detected: total elements (768) cannot be evenly divided by expected dimension (1024). 
+ERROR: Embedding func: Error in decorated function for task 4614132848_208419.993570208: Embedding dimension mismatch detected: total elements (7680) cannot be evenly divided by expected dimension (1024). 
+ERROR: [] Error embedding pending vector ops (upserts=17): Embedding dimension mismatch detected: total elements (7680) cannot be evenly divided by expected dimension (1024). 
+ERROR: Embedding func: Error in decorated function for task 4614132400_208419.993602875: Embedding dimension mismatch detected: total elements (7680) cannot be evenly divided by expected dimension (1024). 
+ERROR: [] Error embedding pending vector ops (upserts=21): Embedding dimension mismatch detected: total elements (7680) cannot be evenly divided by expected dimension (1024). 
+ERROR: Additional index flush failure: NanoVectorDBStorage[relationships] index flush failed: Embedding dimension mismatch detected: total elements (7680) cannot be evenly divided by expected dimension (1024). 
+ERROR: Additional index flush failure: NanoVectorDBStorage[chunks] index flush failed: Embedding dimension mismatch detected: total elements (768) cannot be evenly divided by expected dimension (1024). 
+ERROR: Aborting pipeline batch due to storage flush error: NanoVectorDBStorage[entities] index flush failed: Embedding dimension mismatch detected: total elements (7680) cannot be evenly divided by expected dimension (1024). 
+ERROR: Traceback (most recent call last):
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/lightrag.py", line 3400, in _flush_one
+    await cast(StorageNameSpace, storage_inst).index_done_callback()
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/kg/nano_vector_db_impl.py", line 1095, in index_done_callback
+    await self._flush_pending_locked()
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/kg/nano_vector_db_impl.py", line 635, in _flush_pending_locked
+    embeddings_list = await asyncio.gather(
+                      ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/utils.py", line 746, in __call__
+    result = await self.func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/utils.py", line 2393, in wait_func
+    result = await future
+             ^^^^^^^^^^^^
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/utils.py", line 1464, in worker
+    result = await asyncio.wait_for(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+        exec_task, timeout=max_execution_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/utils.py", line 754, in __call__
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: Embedding dimension mismatch detected: total elements (7680) cannot be evenly divided by expected dimension (1024). 
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/pipeline.py", line 5526, in process_single_document
+    await self._insert_done()
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/lightrag.py", line 3433, in _insert_done
+    await self._flush_storages(self._index_storages())
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/lightrag.py", line 3428, in _flush_storages
+    raise errors[0]
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/lightrag.py", line 3405, in _flush_one
+    raise IndexFlushError(type(storage_inst).__name__, namespace, e) from e
+lightrag.exceptions.IndexFlushError: NanoVectorDBStorage[entities] index flush failed: Embedding dimension mismatch detected: total elements (7680) cannot be evenly divided by expected dimension (1024). 
+
+ERROR: Merging stage failed in document 1/1: unknown_source
+INFO: Enqueued document processing pipeline stopped
+ERROR: Pipeline halted on internal storage error (Cancelled by internal error: NanoVectorDBStorage[entities]: Embedding dimension mismatch detected: total elements (7680) cannot be evenly divided by expected dimension (1024). ). Resolve the storage issue and restart processing; affected documents remain queued (PENDING/FAILED).
+[index] hara2006: built in 821s
+[query] A1 / lightrag / run 1
+INFO: keyword LLM func: 1 new workers initialized (Timeouts: Func: 240s, Worker: 480s, Health Check: 495s)
+ERROR: Embedding func: Error in decorated function for task 4614132624_208419.993591333: Embedding dimension mismatch detected: total elements (5376) cannot be evenly divided by expected dimension (1024). 
+ERROR: Embedding func: Error in decorated function for task 4614132176_208419.993607458: Embedding dimension mismatch detected: total elements (768) cannot be evenly divided by expected dimension (1024). 
+ERROR: Embedding func: Error in decorated function for task 4614131952_208419.993597833: Embedding dimension mismatch detected: total elements (7680) cannot be evenly divided by expected dimension (1024). 

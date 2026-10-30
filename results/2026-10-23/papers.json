@@ -1,0 +1,42 @@
+[
+  {
+    "paper": "hara2006",
+    "pmcid": "none (paywalled)",
+    "route": "abstract",
+    "title": "Suppression of basal autophagy in neural cells causes neurodegenerative disease ",
+    "sections": 0,
+    "units": 3,
+    "unit_mix": {
+      "abstract": 3
+    },
+    "abstract_chars": 1160
+  },
+  {
+    "paper": "maday2012",
+    "pmcid": "PMC3283992",
+    "route": "jats",
+    "title": "Autophagosomes initiate distally and mature during transport toward the cell som",
+    "sections": 3,
+    "units": 151,
+    "unit_mix": {
+      "abstract": 1,
+      "body": 83,
+      "figure": 37,
+      "citation": 30
+    },
+    "abstract_chars": 143
+  },
+  {
+    "paper": "tsong2023",
+    "pmcid": "PMC10621248",
+    "route": "html",
+    "title": "Aging Differentially Affects Axonal Autophagosome Formation and Maturation",
+    "sections": 6,
+    "units": 135,
+    "unit_mix": {
+      "abstract": 4,
+      "body": 131
+    },
+    "abstract_chars": 1944
+  }
+]

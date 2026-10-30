@@ -1,0 +1,14 @@
+{
+  "answer": "I cannot answer this question because you have not specified which scientific paper or study you are referring to. The methods for recording neural activity, the specific calcium sensors used (e.g., GCaMP variants), behavioral setups, and quantification measures vary significantly between different experiments and laboratories.\n\nTo provide an accurate summary, please identify the specific article, authors, or research topic you are interested in. Once you provide the source, I can retrieve the relevant details regarding their imaging techniques (such as two-photon microscopy), sensor specifics, behavioral paradigms, and the mathematical metrics (like Fisher information or mutual information) they employed to quantify spatial coding. Without this context, any answer would be a generalization rather than a factual report on the specific literature you seek.",
+  "prompt_tokens": 75,
+  "output_tokens": 154,
+  "seconds": 6.0,
+  "context_chars": 0,
+  "context_text": "",
+  "question_id": "q2",
+  "condition": "closedbook",
+  "run": 3,
+  "model": "qwen3.5:9b",
+  "workspace": "PMC11289285-test",
+  "observation_budget": 20000
+}

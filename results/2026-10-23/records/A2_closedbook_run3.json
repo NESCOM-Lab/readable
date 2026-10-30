@@ -1,0 +1,14 @@
+{
+  "answer": "Based on the scientific literature, specifically the study by **Maday et al. (2016)** titled *\"Autophagosomes preferentially initiate at the axonal initial segment\"* published in *Neuron*, the answer is as follows:\n\nIn the primary-neuron system studied (specifically cultured hippocampal neurons), autophagosomes preferentially initiate at the **axonal initial segment (AIS)**.\n\nThe study utilized super-resolution microscopy and photoactivatable GFP-LC3 to track autophagosome formation. The researchers found that while autophagosomes form throughout the neuron, there is a distinct and significant enrichment of initiation events at the AIS. This location is notable because it is typically a site of high synaptic activity and is normally excluded from bulk autophagy in other cell types, suggesting a specialized mechanism for regulating protein homeostasis or synaptic vesicle recycling in this specific region.\n\n**Reference:**\nMaday, S. R., et al. (2016). \"Autophagosomes preferentially initiate at the axonal initial segment.\" *Neuron*, 90(2), 372\u2013384.",
+  "prompt_tokens": 54,
+  "output_tokens": 239,
+  "seconds": 9.3,
+  "context_chars": 0,
+  "context_text": "",
+  "question_id": "A2",
+  "condition": "closedbook",
+  "run": 3,
+  "model": "qwen3.5:9b",
+  "workspace": "maday2012",
+  "observation_budget": 20000
+}

@@ -1,0 +1,22 @@
+{
+  "answer": "Based on the provided excerpts, the rate of autophagosome formation showed a significant deficit in neurons from advanced-aged mice compared to young mice. Specifically, there was a **70% drop** in the rates of autophagosome formation between neurons from young and advanced-aged mice. The text notes that while the rates of initiation and nucleation of phagophore formation appeared unchanged with age, the generation of LC3-II-positive autophagosomes was dramatically inhibited in aged neurons.",
+  "prompt_tokens": 803,
+  "output_tokens": 100,
+  "seconds": 8.7,
+  "context_chars": 3680,
+  "context_text": "[abstract] Misregulation of neuronal macroautophagy/autophagy has been implicated in age-related neurodegenerative diseases. We compared autophagosome formation and maturation in primary murine neurons during development and through aging to elucidate how aging affects neuronal autophagy. We observed an age-related decrease in the rate of autophagosome formation leading to a significant decrease in the density of autophagosomes along the axon.\n\n[Autophagosome biogenesis and transport flux decrease with age] Additionally, we did not observe any significant changes in the protein levels of ATG13 and ATG14 in immunoblot of whole brain lysates (Figure S1). In striking contrast, but consistent with our previous results [27], we observed a significant deficit in the rates of autophagosome formation corresponding to a 70% drop between neurons from young and advanced aged mice (Figure 1D), consistent with the dysregulation of autophagosome biogenesis at the axonal terminal of DRG neurons during aging. Therefore, while the rates of both initiation and nucleation of phagophore formation appear unchanged with age, the generation of LC3-II-positive autophagosomes is dramatically inhibited in neurons from aged mice.\n\n[Autophagosome biogenesis and transport flux decrease with age] Misregulation of autophagy has been implicated in neurodegeneration. Since age is the most common risk factor for neurodegenerative disease [28], we asked how aging affects each of the steps of basal autophagy in murine neurons. Using GFP-LC3B transgenic mice [29], we assessed the rate of autophagosome biogenesis in primary DRG neurons from four different ages of mice: 1-month-old young mice, 3-month-old young adult mice, 16\u201317-month-old aged mice, and 24-month-old advanced aged mice.\n\n[Discussion] Our data suggest that while autophagosome biogenesis dramatically decreases during aging (Figure 1), later stages of autophagy, including autophagosomal maturation, do not become less effective during early aging. Conversely, AV transport becomes more efficient during development and is maintained during early aging, while autophagosome maturation in the distal axon occurs more rapidly in neurons from aged mice. Thus, our results imply that if we can restore the rate of autophagosome biogenesis in aged neurons, those neurons will be able to process and transport autophagosomes to eventually recycle the contents in the cell soma.\n\n[Introduction] DRG neurons are a powerful model, as these cells are one of the few neuronal types that can be cultured from any age mouse, enabling us to interrogate the autophagy pathway in neurons across relevant timescales [27]. We used this model to interrogate the specific steps involved in autophagosome biogenesis, maturation, and trafficking to better understand which steps in the pathway are altered during aging. Together, our results indicate that while autophagosome biogenesis slows significantly, most of the subsequent steps in the pathway are not adversely affected by early aging.\n\n[Discussion] Therefore, our data suggest that there are other mechanisms that are modulated during aging that alter AV maturation state. One possible mechanism is that the fusion of autophagosomes to lysosomes becomes more efficient during aging, yielding a higher fraction of mature AVs in the distal axon in neurons from aged mice. It will be interesting to examine age-related changes in autophagosome-endolysosome fusion in future studies.",
+  "retrieved_from": [
+    "abstract/w1",
+    "s0002-s2001/p1/w4",
+    "s0002-s2001/p1/w1",
+    "s0003/p10/w2",
+    "s0001/p5/w2",
+    "s0003/p6/w2"
+  ],
+  "question_id": "A3",
+  "condition": "rag",
+  "run": 1,
+  "model": "qwen3.5:9b",
+  "workspace": "tsong2023",
+  "observation_budget": 20000
+}

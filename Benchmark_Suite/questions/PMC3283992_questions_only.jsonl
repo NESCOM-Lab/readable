@@ -1,0 +1,200 @@
+{"id": "Q001", "question": "What is the full title of the study?"}
+{"id": "Q002", "question": "Who are the three authors, in publication order?"}
+{"id": "Q003", "question": "What journal, volume, issue and page range identify the article?"}
+{"id": "Q004", "question": "What are the article's PMCID, PMID and DOI?"}
+{"id": "Q005", "question": "What is the print publication date, and when was the manuscript received and accepted?"}
+{"id": "Q006", "question": "What is the authors' institutional affiliation?"}
+{"id": "Q007", "question": "Who is the corresponding author?"}
+{"id": "Q008", "question": "Which grant and investigator supported the work, according to the acknowledgments?"}
+{"id": "Q009", "question": "Under what license is the paper available after the first six months?"}
+{"id": "Q010", "question": "Which related commentary is linked in the article metadata, and is it the evaluated article itself?"}
+{"id": "Q011", "question": "What does the term autophagy mean in this paper?"}
+{"id": "Q012", "question": "What structure encloses cytoplasm at autophagy initiation, and what subsequently happens to it?"}
+{"id": "Q013", "question": "How does the introduction distinguish basal autophagy from stress-induced autophagy?"}
+{"id": "Q014", "question": "Are neuron-specific autophagy disruption and resulting neurodegeneration new experiments in this study?"}
+{"id": "Q015", "question": "Which three neurodegenerative diseases are mentioned as having models with autophagy defects?"}
+{"id": "Q016", "question": "What primary cell type and species were used for live-cell experiments?"}
+{"id": "Q017", "question": "What made the cultured DRG neurites suitable for resolving spatial stages of autophagy?"}
+{"id": "Q018", "question": "What supported treating the neurites as axons?"}
+{"id": "Q019", "question": "Expand DRG, ALS, fALS, LAMP1 and Ub."}
+{"id": "Q020", "question": "Was the reported autophagosome pathway observed as a constitutive process or only after experimentally induced starvation?"}
+{"id": "Q021", "question": "Which reporter was used to visualize autophagosomes, and how was it introduced in the principal experiments?"}
+{"id": "Q022", "question": "How does LC3 localization change when autophagosomes form?"}
+{"id": "Q023", "question": "Where were newly forming GFP-LC3 rings observed relative to the soma?"}
+{"id": "Q024", "question": "What was the approximate diameter of the distal GFP-LC3 ring structures?"}
+{"id": "Q025", "question": "What evidence supported identifying the distal rings as autophagosomes?"}
+{"id": "Q026", "question": "What sequence of morphological changes directly demonstrated distal biogenesis?"}
+{"id": "Q027", "question": "When did growing puncta begin to recover GFP-LC3 fluorescence after photobleaching?"}
+{"id": "Q028", "question": "How long did recovering puncta take to develop into rings?"}
+{"id": "Q029", "question": "What did fluorescence recovery of a growing punctum indicate?"}
+{"id": "Q030", "question": "How did preexisting autophagosome rings behave after GFP-LC3 photobleaching?"}
+{"id": "Q031", "question": "What inference did the authors make from the lack of recovery in preexisting rings?"}
+{"id": "Q032", "question": "What did FRAP along the axon show about formation, growth and existing autophagosomes?"}
+{"id": "Q033", "question": "Could the authors exclude autophagosome initiation in the cell body, and why?"}
+{"id": "Q034", "question": "Which membrane sources were proposed for the distal rings, and was a source established?"}
+{"id": "Q035", "question": "How does the observed spatial pattern differ from the cited pattern in smaller, less polarized cells?"}
+{"id": "Q036", "question": "Which figure panels and video show puncta growing into rings and the FRAP distinction between growing and existing structures?"}
+{"id": "Q037", "question": "How did distal autophagosomes move before entering the axon shaft?"}
+{"id": "Q038", "question": "What transition was occasionally observed when autophagosomes escaped the distal pool?"}
+{"id": "Q039", "question": "In what axonal region was robust unidirectional motility described for the main transport analysis?"}
+{"id": "Q040", "question": "What fraction of autophagosomes underwent net retrograde movement, with what uncertainty and displacement threshold?"}
+{"id": "Q041", "question": "How common was net anterograde autophagosome movement in the main axonal analysis?"}
+{"id": "Q042", "question": "What fraction was nonprocessively bidirectional or stationary?"}
+{"id": "Q043", "question": "What mean autophagosome speed and uncertainty were reported in the supplemental analysis?"}
+{"id": "Q044", "question": "How many instantaneous-velocity events contributed to Fig. 2 A?"}
+{"id": "Q045", "question": "What was the sampling hierarchy behind the principal tracking dataset?"}
+{"id": "Q046", "question": "What was the median reversal frequency and its denominator?"}
+{"id": "Q047", "question": "What was the median reversal length?"}
+{"id": "Q048", "question": "What proportion of tracked time was spent paused, and what summary statistic was used?"}
+{"id": "Q049", "question": "What do the few anterograde steps in tracked retrograde vesicles represent?"}
+{"id": "Q050", "question": "What did the authors propose might trigger release from the distal bidirectional pool?"}
+{"id": "Q051", "question": "How did autophagosome movement in the studied neurons differ from movement cited for normal rat kidney and PC12 cells?"}
+{"id": "Q052", "question": "What sample size and error-bar convention were used for Fig. 1 G?"}
+{"id": "Q053", "question": "Which displayed direction represents retrograde motion in the figures?"}
+{"id": "Q054", "question": "Which motor and activator were implicated by the strong retrograde bias?"}
+{"id": "Q055", "question": "Which neuron-specific dynein intermediate-chain reporter co-migrated with autophagosomes?"}
+{"id": "Q056", "question": "Which ubiquitously expressed dynein intermediate-chain reporter labeled retrograde autophagosomes?"}
+{"id": "Q057", "question": "What does dominant-negative CC1 inhibit, and what happened to autophagosome motility when it was expressed?"}
+{"id": "Q058", "question": "From which protein and residue range was the CC1 construct derived?"}
+{"id": "Q059", "question": "Which anterograde motor families co-migrated with autophagosomes?"}
+{"id": "Q060", "question": "Which constructs supported the kinesin-1 and kinesin-2 co-migration observations?"}
+{"id": "Q061", "question": "Did overexpression of the dominant-negative kinesin-1 tail disrupt autophagosome transport?"}
+{"id": "Q062", "question": "Which motor-associated proteins copurified with isolated autophagosomes?"}
+{"id": "Q063", "question": "From what tissue were the biochemically isolated autophagosome-enriched fractions prepared?"}
+{"id": "Q064", "question": "Which gradient procedures were compared for autophagosome enrichment?"}
+{"id": "Q065", "question": "Which LC3 form was more effectively selected by the three-step gradient?"}
+{"id": "Q066", "question": "Why should relative motor band intensities across the gradients not be treated as exact motor stoichiometries?"}
+{"id": "Q067", "question": "Could some copurifying motors have been inside autophagosomes rather than on their surface?"}
+{"id": "Q068", "question": "What evidence supported a functionally relevant motor pool on the cytosolic face of autophagosomes?"}
+{"id": "Q069", "question": "How did the authors explain retrograde transport despite associated kinesin motors?"}
+{"id": "Q070", "question": "What motor-regulation mechanism was proposed for the return to bidirectional movement after acidification?"}
+{"id": "Q071", "question": "Why can a slight red-signal lead over green in Fig. 2 C not by itself establish that dynein precedes LC3 biologically?"}
+{"id": "Q072", "question": "Which mitochondrial marker was used to test for organelle cargo?"}
+{"id": "Q073", "question": "What mitochondrial material co-migrated with autophagosomes?"}
+{"id": "Q074", "question": "What fraction of axonal autophagosomes was double labeled with the mitochondrial marker?"}
+{"id": "Q075", "question": "How did the larger tubular mitochondria usually move?"}
+{"id": "Q076", "question": "How did the authors interpret the low frequency of mitochondrial cargo?"}
+{"id": "Q077", "question": "How common was RFP-Ub labeling among autophagosomes traveling along the axon?"}
+{"id": "Q078", "question": "How did RFP-Ub appear in distal autophagosome rings?"}
+{"id": "Q079", "question": "What FRAP result supported RFP-Ub internalization rather than free exchange with cytosol?"}
+{"id": "Q080", "question": "Which disease-linked SOD1 variant was tested as cargo?"}
+{"id": "Q081", "question": "What was the distribution of transfected mCherry-SOD1G93A in DRG neurons?"}
+{"id": "Q082", "question": "How common was mCherry-SOD1G93A labeling of axonal autophagosomes?"}
+{"id": "Q083", "question": "What FRAP result supported internalization of mCherry-SOD1G93A, and where was it observed?"}
+{"id": "Q084", "question": "When were RFP-Ub and mCherry-SOD1G93A thought to be engulfed, and what supported that inference?"}
+{"id": "Q085", "question": "What control observation supported constitutive capture of soluble cytosolic proteins?"}
+{"id": "Q086", "question": "Which Golgi marker was tested, and was its incorporation observed?"}
+{"id": "Q087", "question": "Does SOD1G93A positivity establish that autophagosomes selectively engulf SOD1 aggregates?"}
+{"id": "Q088", "question": "How was the fALS reporter mouse model generated?"}
+{"id": "Q089", "question": "At what approximate ages were early- and late-stage disease neurons imaged?"}
+{"id": "Q090", "question": "What more precise disease-stage ages were given in the methods?"}
+{"id": "Q091", "question": "What criterion defined late-stage disease?"}
+{"id": "Q092", "question": "What controls were used for the SOD1G93A cross experiments?"}
+{"id": "Q093", "question": "What pathological material accumulated in the axons of the fALS model?"}
+{"id": "Q094", "question": "What happened to autophagosome transport at late-stage disease despite aggregate accumulation?"}
+{"id": "Q095", "question": "Did autophagosome formation, density or axonal flux change significantly in the fALS model?"}
+{"id": "Q096", "question": "Did mutant SOD1 expression alter the mean axonal autophagosome velocity?"}
+{"id": "Q097", "question": "What sample size was reported for directional motility, density and flux in Fig. S3?"}
+{"id": "Q098", "question": "What n range and error-bar convention were reported for the Fig. S3 velocity analysis?"}
+{"id": "Q099", "question": "What was the authors' conclusion about up-regulating autophagy in response to aggregate accumulation in this model?"}
+{"id": "Q100", "question": "Does the fALS experiment establish that autophagosome dynamics are normal in all ALS neurons and patients?"}
+{"id": "Q101", "question": "Which late-endosome/lysosome membrane reporter was used to investigate fusion-associated maturation?"}
+{"id": "Q102", "question": "How much distal GFP-LC3/LAMP1-RFP colocalization was reported?"}
+{"id": "Q103", "question": "How much GFP-LC3/LAMP1-RFP colocalization was reported in retrogradely moving axonal autophagosomes?"}
+{"id": "Q104", "question": "What did the distal-to-axon change in LAMP1 labeling suggest?"}
+{"id": "Q105", "question": "What property does LysoTracker red preferentially report?"}
+{"id": "Q106", "question": "Which endosomal markers did LysoTracker-positive compartments associate with?"}
+{"id": "Q107", "question": "What fraction of distal autophagosome rings was LysoTracker red positive?"}
+{"id": "Q108", "question": "What fraction of axonal autophagosomes was LysoTracker red positive?"}
+{"id": "Q109", "question": "What did the LysoTracker gradient suggest about the timing of acidification?"}
+{"id": "Q110", "question": "Which tandem fluorescent reporter was used for the maturation assay?"}
+{"id": "Q111", "question": "How should yellow versus red-only signal from the tandem LC3 reporter be interpreted?"}
+{"id": "Q112", "question": "Were the tandem-reporter experiments performed in wild-type or GFP-LC3 transgenic neurons?"}
+{"id": "Q113", "question": "How did the tandem reporter's GFP pH sensitivity compare with that of singly tagged transgenic GFP-LC3?"}
+{"id": "Q114", "question": "What spatial trend was observed in tandem-reporter double positivity?"}
+{"id": "Q115", "question": "What fraction of proximal LC3 puncta was mCherry-only, and what location was specified?"}
+{"id": "Q116", "question": "What sample size, P value, statistical test and uncertainty convention were reported for Fig. 5 E?"}
+{"id": "Q117", "question": "How did proximal double-positive organelles move compared with mCherry-only organelles?"}
+{"id": "Q118", "question": "What kind of compartment was increasingly acidified LC3-positive material proposed to become?"}
+{"id": "Q119", "question": "What recycling advantage was proposed for degradation near the soma?"}
+{"id": "Q120", "question": "Did the study prove that endosome/lysosome fusion triggers the onset of retrograde transport?"}
+{"id": "Q121", "question": "What were the strain names of the GFP-LC3 and SOD1G93A mice?"}
+{"id": "Q122", "question": "Where did the GFP-LC3 and SOD1G93A mouse strains come from?"}
+{"id": "Q123", "question": "What basal culture medium and serum concentration were used for DRG neurons?"}
+{"id": "Q124", "question": "What glutamine and antibiotic supplements were included in DRG culture medium?"}
+{"id": "Q125", "question": "How long, at what temperature and under what CO2 conditions were DRG neurons cultured before live imaging?"}
+{"id": "Q126", "question": "On what substrate were cells plated for live-cell analysis, and how were plasmids introduced?"}
+{"id": "Q127", "question": "What imaging medium and supplements were used?"}
+{"id": "Q128", "question": "What was the LysoTracker red loading protocol?"}
+{"id": "Q129", "question": "What microscope and objective were used for GFP-LC3 motility/particle tracking and tandem-reporter analysis?"}
+{"id": "Q130", "question": "What camera and acquisition software were used for epifluorescence imaging?"}
+{"id": "Q131", "question": "What frame interval and recording duration were used for the principal motility videos?"}
+{"id": "Q132", "question": "In what order were the two fluorescence channels acquired?"}
+{"id": "Q133", "question": "What microscope system and objective were used for biogenesis and colocalization experiments?"}
+{"id": "Q134", "question": "What camera and software were used for confocal acquisition?"}
+{"id": "Q135", "question": "What acquisition intervals and recording lengths were used for biogenesis experiments?"}
+{"id": "Q136", "question": "How was GFP-LC3 photobleached in biogenesis experiments?"}
+{"id": "Q137", "question": "What acquisition schedule was used for colocalization experiments?"}
+{"id": "Q138", "question": "How were mCherry-SOD1G93A and RFP-Ub photobleached and monitored for recovery?"}
+{"id": "Q139", "question": "Which tools were used for tracking, kymographs and image assembly?"}
+{"id": "Q140", "question": "Which puncta qualified for manual tracking, and for how long were they followed?"}
+{"id": "Q141", "question": "How was mean vesicle velocity calculated, and were paused values included?"}
+{"id": "Q142", "question": "What velocity criterion defined a pause, and why was that cutoff used?"}
+{"id": "Q143", "question": "What defined a reversal?"}
+{"id": "Q144", "question": "How was the number of reversals per 100 µm normalized?"}
+{"id": "Q145", "question": "How were net retrograde, net anterograde and bidirectional/stationary vesicles classified?"}
+{"id": "Q146", "question": "What neurite-selection criterion was used to generate analysis kymographs?"}
+{"id": "Q147", "question": "How was autophagosome density calculated from kymographs?"}
+{"id": "Q148", "question": "How was flux defined, including included populations and units?"}
+{"id": "Q149", "question": "What precise distal and proximal regions were defined for tandem-reporter analysis?"}
+{"id": "Q150", "question": "What source material, volume and sucrose concentration were used for autophagosome fractionation?"}
+{"id": "Q151", "question": "What buffer component was added for the three-step gradient, and how was protein loading controlled?"}
+{"id": "Q152", "question": "What homogenizer and rotors were specified for fractionation?"}
+{"id": "Q153", "question": "What fixation and blocking/permeabilization conditions were used for immunofluorescence?"}
+{"id": "Q154", "question": "What were the antibody incubation, wash and mounting steps?"}
+{"id": "Q155", "question": "Which body approved the animal protocols?"}
+{"id": "Q156", "question": "What independent questions are addressed by Fig. S1 A–D?"}
+{"id": "Q157", "question": "Which supplemental panels support kinesin-2 association and absence of a Golgi marker?"}
+{"id": "Q158", "question": "Which panels distinguish LysoTracker association with late versus early endosomal compartments?"}
+{"id": "Q159", "question": "Which figure contains the ALS-model aggregate, motility, velocity, density and flux evidence?"}
+{"id": "Q160", "question": "What does Video 1 document, and which main-figure panel contains its stills?"}
+{"id": "Q161", "question": "What acquisition duration, frame interval and playback speed were specified for Video 1?"}
+{"id": "Q162", "question": "What transition does Video 2 illustrate, and which panel contains its kymograph?"}
+{"id": "Q163", "question": "What acquisition duration, frame interval and playback speed were specified for Video 2?"}
+{"id": "Q164", "question": "What does Video 3 illustrate, and where are its stills and kymographs shown?"}
+{"id": "Q165", "question": "What recording and playback settings were specified for Video 3?"}
+{"id": "Q166", "question": "Which dynein reporter was used in Video 4, and where is its main-figure evidence?"}
+{"id": "Q167", "question": "Which dynein reporter was used in Video 5, and where is its supplemental-figure evidence?"}
+{"id": "Q168", "question": "What acquisition and playback settings were shared by Videos 4 and 5?"}
+{"id": "Q169", "question": "What do the Fig. 1, Fig. 2 and Fig. 5 legends report as their principal sample units?"}
+{"id": "Q170", "question": "What contrast-processing caveat was disclosed for the distal cargo FRAP images?"}
+{"id": "Q171", "question": "Reconstruct the proposed spatial sequence from autophagosome formation to the mature compartment near the soma."}
+{"id": "Q172", "question": "Connect microtubule polarity, motor directionality and the observed destination of most autophagosomes."}
+{"id": "Q173", "question": "Which findings argue that motor presence alone does not predict transport direction?"}
+{"id": "Q174", "question": "Which combined observations support uptake of both soluble proteins and organelle material?"}
+{"id": "Q175", "question": "Why is LC3/cargo co-migration weaker evidence of internalization than the cargo FRAP experiment?"}
+{"id": "Q176", "question": "Compare distal and axonal LAMP1 and LysoTracker labeling without swapping the measurements."}
+{"id": "Q177", "question": "Why can an autophagosome remain singly tagged GFP-LC3 positive and still be acidified?"}
+{"id": "Q178", "question": "Reconcile the different distances described as distal in the paper."}
+{"id": "Q179", "question": "Reconcile the approximate and precise ages in the disease-model descriptions."}
+{"id": "Q180", "question": "Why does unchanged transport in the fALS model not show that aggregation was absent or successfully cleared?"}
+{"id": "Q181", "question": "Which complementary evidence supports dynein-dependent transport beyond co-migration alone?"}
+{"id": "Q182", "question": "How should the graph distinguish evidence for fusion from the proposed causal trigger of transport?"}
+{"id": "Q183", "question": "What distinctions must be retained between the live imaging and biochemical motor experiments?"}
+{"id": "Q184", "question": "What makes the 8,872 velocity events unsuitable as the count of independent animals?"}
+{"id": "Q185", "question": "Which central findings were directly observed, and which aspects of the model remained proposed?"}
+{"id": "Q186", "question": "What exact membrane source was experimentally established for the distal autophagosomes?"}
+{"id": "Q187", "question": "Which specific kinase or signaling pathway was proven to release autophagosomes from the distal pool?"}
+{"id": "Q188", "question": "What were the absolute luminal pH values of distal and proximal autophagosomes?"}
+{"id": "Q189", "question": "What exact molecular mechanism switches bound kinesin motors off and back on?"}
+{"id": "Q190", "question": "How many dynein and kinesin molecules were present on each autophagosome?"}
+{"id": "Q191", "question": "What were the exact P values for every SOD1G93A versus control comparison in Fig. S3?"}
+{"id": "Q192", "question": "What was the measured half-life or biochemical degradation rate of engulfed SOD1G93A?"}
+{"id": "Q193", "question": "Did the paper demonstrate selective recognition of SOD1G93A aggregates by a named cargo receptor?"}
+{"id": "Q194", "question": "Which quantitative results were obtained from human ALS motor neurons or ALS patients?"}
+{"id": "Q195", "question": "What sex distribution was reported for the mice in each experiment?"}
+{"id": "Q196", "question": "What randomization or blinded-analysis procedure was reported for image scoring?"}
+{"id": "Q197", "question": "What drug or genetic intervention rescued disease phenotypes by increasing autophagic flux in this study?"}
+{"id": "Q198", "question": "Was autophagosome biogenesis in the soma experimentally ruled out?"}
+{"id": "Q199", "question": "What exact numerical raw values underlie every bar in Fig. S3?"}
+{"id": "Q200", "question": "Did this study prove that acidification increases cargo degradation efficiency by a specified percentage?"}

@@ -1,0 +1,384 @@
+
+[1/90] q1 / closedbook / run 1
+[setup] PMC11289285-test: 69458 chars across 5 section files
+[setup] PMC11289285-test: 250 retrieval units
+[setup] PMC11289285-test: 121 markdown chunks, embedded in 2.0s
+    91 prompt tok, 277 out tok, 13.2s -> q1_closedbook_run1.json
+
+[2/90] q1 / closedbook / run 2
+    91 prompt tok, 261 out tok, 10.2s -> q1_closedbook_run2.json
+
+[3/90] q1 / closedbook / run 3
+    91 prompt tok, 227 out tok, 8.9s -> q1_closedbook_run3.json
+
+[4/90] q1 / bm25 / run 1
+    629 prompt tok, 220 out tok, 10.1s -> q1_bm25_run1.json
+
+[5/90] q1 / bm25 / run 2
+    629 prompt tok, 203 out tok, 8.1s -> q1_bm25_run2.json
+
+[6/90] q1 / bm25 / run 3
+    629 prompt tok, 210 out tok, 8.3s -> q1_bm25_run3.json
+
+[7/90] q1 / raw / run 1
+    16946 prompt tok, 246 out tok, 62.9s -> q1_raw_run1.json
+
+[8/90] q1 / raw / run 2
+    16946 prompt tok, 238 out tok, 10.0s -> q1_raw_run2.json
+
+[9/90] q1 / raw / run 3
+    16946 prompt tok, 242 out tok, 10.2s -> q1_raw_run3.json
+
+[10/90] q1 / rag / run 1
+    697 prompt tok, 231 out tok, 13.3s -> q1_rag_run1.json
+
+[11/90] q1 / rag / run 2
+    697 prompt tok, 189 out tok, 7.8s -> q1_rag_run2.json
+
+[12/90] q1 / rag / run 3
+    697 prompt tok, 187 out tok, 7.7s -> q1_rag_run3.json
+
+[13/90] q1 / rag_flat / run 1
+    1093 prompt tok, 214 out tok, 11.3s -> q1_rag_flat_run1.json
+
+[14/90] q1 / rag_flat / run 2
+    1093 prompt tok, 224 out tok, 10.1s -> q1_rag_flat_run2.json
+
+[15/90] q1 / rag_flat / run 3
+    1093 prompt tok, 220 out tok, 10.0s -> q1_rag_flat_run3.json
+
+[16/90] q1 / cli / run 1
+    [step 1] ACTION: section Sec7
+    [step 2] ACTION: section Sec1
+    [step 3] ANSWER: Adult neurogenesis improves spatial information encoding in the mouse hippocampus by increas
+    [step 4] ACTION: section Sec4
+    [step 5] ACTION: section Sec3
+    [step 6] ACTION: section Sec5
+    [step 7] ACTION: section Sec6
+    [step 8] ANSWER: Adult neurogenesis improves spatial information encoding in the mouse hippocampus by increas
+    69432 prompt tok, 430 out tok, 75.7s -> q1_cli_run1.json
+
+[17/90] q1 / cli / run 2
+    [step 1] ACTION: section Sec7
+    [step 2] ACTION: section Sec4
+    [step 3] ACTION: section Sec3
+    [step 4] ACTION: section Sec5
+    [step 5] ACTION: section Sec6
+    [step 6] ANSWER: Adult neurogenesis improves spatial information encoding in the mouse hippocampus by increas
+    47415 prompt tok, 248 out tok, 44.4s -> q1_cli_run2.json
+
+[18/90] q1 / cli / run 3
+    [step 1] ACTION: section Sec7
+    [step 2] ACTION: section Sec4
+    [step 3] ACTION: section Sec3
+    [step 4] ACTION: section Sec5
+    [step 5] ACTION: section Sec6
+    [step 6] ANSWER: Adult neurogenesis improves spatial information encoding in the mouse hippocampus by increas
+    47415 prompt tok, 242 out tok, 43.9s -> q1_cli_run3.json
+
+[19/90] q2 / closedbook / run 1
+    75 prompt tok, 213 out tok, 10.5s -> q2_closedbook_run1.json
+
+[20/90] q2 / closedbook / run 2
+    75 prompt tok, 254 out tok, 9.7s -> q2_closedbook_run2.json
+
+[21/90] q2 / closedbook / run 3
+    75 prompt tok, 154 out tok, 6.0s -> q2_closedbook_run3.json
+
+[22/90] q2 / bm25 / run 1
+    880 prompt tok, 146 out tok, 7.9s -> q2_bm25_run1.json
+
+[23/90] q2 / bm25 / run 2
+    880 prompt tok, 161 out tok, 7.1s -> q2_bm25_run2.json
+
+[24/90] q2 / bm25 / run 3
+    880 prompt tok, 145 out tok, 6.5s -> q2_bm25_run3.json
+
+[25/90] q2 / raw / run 1
+    16930 prompt tok, 206 out tok, 60.8s -> q2_raw_run1.json
+
+[26/90] q2 / raw / run 2
+    16930 prompt tok, 194 out tok, 8.1s -> q2_raw_run2.json
+
+[27/90] q2 / raw / run 3
+    16930 prompt tok, 220 out tok, 9.1s -> q2_raw_run3.json
+
+[28/90] q2 / rag / run 1
+    957 prompt tok, 174 out tok, 11.5s -> q2_rag_run1.json
+
+[29/90] q2 / rag / run 2
+    957 prompt tok, 205 out tok, 8.9s -> q2_rag_run2.json
+
+[30/90] q2 / rag / run 3
+    957 prompt tok, 212 out tok, 9.2s -> q2_rag_run3.json
+
+[31/90] q2 / rag_flat / run 1
+    1299 prompt tok, 196 out tok, 11.0s -> q2_rag_flat_run1.json
+
+[32/90] q2 / rag_flat / run 2
+    1299 prompt tok, 214 out tok, 10.2s -> q2_rag_flat_run2.json
+
+[33/90] q2 / rag_flat / run 3
+    1299 prompt tok, 191 out tok, 9.4s -> q2_rag_flat_run3.json
+
+[34/90] q2 / cli / run 1
+    [step 1] ACTION: section Sec12
+    [step 2] ACTION: section Sec14
+    [step 3] ACTION: section Sec17
+    [step 4] ANSWER: The authors recorded neural activity using in vivo two-photon calcium imaging with a Fidelit
+    [step 5] ACTION: similar "calcium sensor" in Sec12
+    [step 6] ACTION: similar "calcium sensor" in Sec11
+    [step 7] ACTION: section Sec11
+    [step 8] ANSWER: The authors recorded neural activity using in vivo two-photon calcium imaging with a Fidelit
+    48414 prompt tok, 476 out tok, 61.9s -> q2_cli_run1.json
+
+[35/90] q2 / cli / run 2
+    [step 1] ACTION: section Sec12
+    [step 2] ACTION: section Sec14
+    [step 3] ACTION: section Sec17
+    [step 4] ANSWER: The authors recorded neural activity using in vivo two-photon calcium imaging with a Fidelit
+    [step 5] ACTION: similar "calcium sensor"
+    [step 6] ACTION: section Sec11
+    [step 7] ANSWER: The authors recorded neural activity using in vivo two-photon calcium imaging with a Fidelit
+    38289 prompt tok, 453 out tok, 47.1s -> q2_cli_run2.json
+
+[36/90] q2 / cli / run 3
+    [step 1] ACTION: section Sec12
+    [step 2] ACTION: section Sec14
+    [step 3] ACTION: section Sec17
+    [step 4] ANSWER: The authors recorded neural activity using in vivo two-photon calcium imaging with a 16× obj
+    [step 5] ACTION: similar "calcium sensor" in Sec12
+    [step 6] ACTION: similar "calcium sensor" in Sec12
+    [step 7] ACTION: similar "calcium sensor" in Sec12
+    [step 8] ANSWER: The authors recorded neural activity using in vivo two-photon calcium imaging with a 16× obj
+    47452 prompt tok, 376 out tok, 51.8s -> q2_cli_run3.json
+
+[37/90] q3 / closedbook / run 1
+    80 prompt tok, 217 out tok, 10.7s -> q3_closedbook_run1.json
+
+[38/90] q3 / closedbook / run 2
+    80 prompt tok, 215 out tok, 8.3s -> q3_closedbook_run2.json
+
+[39/90] q3 / closedbook / run 3
+    80 prompt tok, 235 out tok, 9.1s -> q3_closedbook_run3.json
+
+[40/90] q3 / bm25 / run 1
+    738 prompt tok, 167 out tok, 8.3s -> q3_bm25_run1.json
+
+[41/90] q3 / bm25 / run 2
+    738 prompt tok, 146 out tok, 6.2s -> q3_bm25_run2.json
+
+[42/90] q3 / bm25 / run 3
+    738 prompt tok, 174 out tok, 7.2s -> q3_bm25_run3.json
+
+[43/90] q3 / raw / run 1
+    16935 prompt tok, 190 out tok, 59.7s -> q3_raw_run1.json
+
+[44/90] q3 / raw / run 2
+    16935 prompt tok, 160 out tok, 6.7s -> q3_raw_run2.json
+
+[45/90] q3 / raw / run 3
+    16935 prompt tok, 167 out tok, 6.9s -> q3_raw_run3.json
+
+[46/90] q3 / rag / run 1
+    749 prompt tok, 160 out tok, 10.7s -> q3_rag_run1.json
+
+[47/90] q3 / rag / run 2
+    749 prompt tok, 136 out tok, 5.8s -> q3_rag_run2.json
+
+[48/90] q3 / rag / run 3
+    749 prompt tok, 163 out tok, 6.8s -> q3_rag_run3.json
+
+[49/90] q3 / rag_flat / run 1
+    944 prompt tok, 152 out tok, 8.3s -> q3_rag_flat_run1.json
+
+[50/90] q3 / rag_flat / run 2
+    944 prompt tok, 147 out tok, 6.8s -> q3_rag_flat_run2.json
+
+[51/90] q3 / rag_flat / run 3
+    944 prompt tok, 144 out tok, 6.7s -> q3_rag_flat_run3.json
+
+[52/90] q3 / cli / run 1
+    [step 1] ACTION: section Sec7
+    [step 2] ANSWER: The authors found that noise correlations between neurons in the dentate gyrus (DG) had no e
+    [step 3] ACTION: section Sec4
+    [step 4] ACTION: section Sec14
+    [step 5] ACTION: section Sec3
+    [step 6] ANSWER: The authors found that noise correlations between neurons in the dentate gyrus (DG) had no e
+    43782 prompt tok, 292 out tok, 50.5s -> q3_cli_run1.json
+
+[53/90] q3 / cli / run 2
+    [step 1] ACTION: section Sec7
+    [step 2] ANSWER: The authors found that noise correlations between neurons in the dentate gyrus (DG) had no e
+    [step 3] ACTION: similar "how did they test it" in Sec7
+    [step 4] ACTION: similar "how did they test it" in Sec4
+    [step 5] ACTION: similar "how did they test it" in Sec2
+    [step 6] ACTION: section Sec4
+    [step 7] ANSWER: The authors found that noise correlations between neurons in the dentate gyrus (DG) had no e
+    58882 prompt tok, 323 out tok, 55.5s -> q3_cli_run2.json
+
+[54/90] q3 / cli / run 3
+    [step 1] ACTION: section Sec7
+    [step 2] ANSWER: The authors found that noise correlations between neurons in the dentate gyrus (DG) had no e
+    [step 3] ACTION: similar "noise correlations" in Sec7
+    [step 4] ANSWER: The authors found that noise correlations between neurons in the dentate gyrus had no effect
+    [step 5] ACTION: section Sec4
+    [step 6] ANSWER: The authors found that noise correlations between neurons in the dentate gyrus had no effect
+    [step 7] ACTION: section Sec3
+    [step 8] ANSWER: The authors found that noise correlations between neurons in the dentate gyrus had no effect
+    64573 prompt tok, 546 out tok, 61.2s -> q3_cli_run3.json
+
+[55/90] q4 / closedbook / run 1
+    67 prompt tok, 145 out tok, 8.0s -> q4_closedbook_run1.json
+
+[56/90] q4 / closedbook / run 2
+    67 prompt tok, 156 out tok, 6.1s -> q4_closedbook_run2.json
+
+[57/90] q4 / closedbook / run 3
+    67 prompt tok, 143 out tok, 5.6s -> q4_closedbook_run3.json
+
+[58/90] q4 / bm25 / run 1
+    867 prompt tok, 246 out tok, 11.6s -> q4_bm25_run1.json
+
+[59/90] q4 / bm25 / run 2
+    867 prompt tok, 207 out tok, 8.8s -> q4_bm25_run2.json
+
+[60/90] q4 / bm25 / run 3
+    867 prompt tok, 235 out tok, 9.8s -> q4_bm25_run3.json
+
+[61/90] q4 / raw / run 1
+    16922 prompt tok, 228 out tok, 61.2s -> q4_raw_run1.json
+
+[62/90] q4 / raw / run 2
+    16922 prompt tok, 229 out tok, 9.4s -> q4_raw_run2.json
+
+[63/90] q4 / raw / run 3
+    16922 prompt tok, 231 out tok, 9.5s -> q4_raw_run3.json
+
+[64/90] q4 / rag / run 1
+    738 prompt tok, 219 out tok, 12.6s -> q4_rag_run1.json
+
+[65/90] q4 / rag / run 2
+    738 prompt tok, 212 out tok, 8.6s -> q4_rag_run2.json
+
+[66/90] q4 / rag / run 3
+    738 prompt tok, 246 out tok, 9.9s -> q4_rag_run3.json
+
+[67/90] q4 / rag_flat / run 1
+    1332 prompt tok, 247 out tok, 12.9s -> q4_rag_flat_run1.json
+
+[68/90] q4 / rag_flat / run 2
+    1332 prompt tok, 260 out tok, 12.0s -> q4_rag_flat_run2.json
+
+[69/90] q4 / rag_flat / run 3
+    1332 prompt tok, 195 out tok, 9.6s -> q4_rag_flat_run3.json
+
+[70/90] q4 / cli / run 1
+    [step 1] ACTION: section Sec7
+    [step 2] ANSWER: The authors report disagreement with two main studies. First, McHugh et al. found that silen
+    [step 3] ACTION: ANSWER: The authors report disagreement with two main studies. First, McHugh et al. found th
+    [step 4] ACTION: ANSWER: The authors report disagreement with two main studies. First, McHugh et al. found th
+    [step 5] ACTION: similar "disagree" in Sec7
+    [step 6] ACTION: ANSWER: The authors report disagreement with two main studies. First, McHugh et al. found th
+    [step 7] ACTION: similar "McHugh" in Sec7
+    [step 8] ANSWER: The authors report disagreement with two main studies. First, McHugh et al. found that silen
+    61873 prompt tok, 1034 out tok, 87.2s -> q4_cli_run1.json
+
+[71/90] q4 / cli / run 2
+    [step 1] ACTION: section Sec7
+    [step 2] ANSWER: The authors note disagreement with two main studies. First, McHugh et al. (using electrophys
+    [step 3] ACTION: ANSWER: The authors note disagreement with two main studies. First, McHugh et al. (using ele
+    [step 4] ACTION: ANSWER: The authors note disagreement with two main studies. First, McHugh et al. (using ele
+    [step 5] ACTION: similar "disagree" in Sec7
+    [step 6] ACTION: similar "disagree" in Sec7
+    [step 7] ACTION: similar "disagree" in Sec7
+    [step 8] ANSWER: The authors identify two main studies disagreeing with their findings. First, McHugh et al. 
+    64009 prompt tok, 859 out tok, 77.5s -> q4_cli_run2.json
+
+[72/90] q4 / cli / run 3
+    [step 1] ACTION: section Sec7
+    [step 2] ANSWER: The authors report disagreement with two main studies: McHugh et al. (2008) and Tuncdemir et
+    [step 3] ANSWER: The authors report disagreement with two main studies: McHugh et al. (2008) and Tuncdemir et
+    [step 4] ACTION: similar "disagree" in Sec7
+    [step 5] ACTION: similar "disagree" in Sec7
+    [step 6] ANSWER: The authors report disagreement with two main studies: McHugh et al. (2008) and Tuncdemir et
+    [step 7] ACTION: similar "McHugh" in Sec7
+    [step 8] ANSWER: The authors report disagreement with two main studies: McHugh et al. (2008) and Tuncdemir et
+    66194 prompt tok, 899 out tok, 79.5s -> q4_cli_run3.json
+
+[73/90] q5 / closedbook / run 1
+    62 prompt tok, 119 out tok, 7.0s -> q5_closedbook_run1.json
+
+[74/90] q5 / closedbook / run 2
+    62 prompt tok, 132 out tok, 5.2s -> q5_closedbook_run2.json
+
+[75/90] q5 / closedbook / run 3
+    62 prompt tok, 132 out tok, 5.2s -> q5_closedbook_run3.json
+
+[76/90] q5 / bm25 / run 1
+    905 prompt tok, 220 out tok, 10.7s -> q5_bm25_run1.json
+
+[77/90] q5 / bm25 / run 2
+    905 prompt tok, 242 out tok, 10.2s -> q5_bm25_run2.json
+
+[78/90] q5 / bm25 / run 3
+    905 prompt tok, 220 out tok, 9.4s -> q5_bm25_run3.json
+
+[79/90] q5 / raw / run 1
+    16917 prompt tok, 292 out tok, 65.0s -> q5_raw_run1.json
+
+[80/90] q5 / raw / run 2
+    16917 prompt tok, 276 out tok, 11.3s -> q5_raw_run2.json
+
+[81/90] q5 / raw / run 3
+    16917 prompt tok, 277 out tok, 11.3s -> q5_raw_run3.json
+
+[82/90] q5 / rag / run 1
+    1045 prompt tok, 211 out tok, 13.1s -> q5_rag_run1.json
+
+[83/90] q5 / rag / run 2
+    1045 prompt tok, 210 out tok, 9.4s -> q5_rag_run2.json
+
+[84/90] q5 / rag / run 3
+    1045 prompt tok, 202 out tok, 9.1s -> q5_rag_run3.json
+
+[85/90] q5 / rag_flat / run 1
+    1254 prompt tok, 236 out tok, 12.3s -> q5_rag_flat_run1.json
+
+[86/90] q5 / rag_flat / run 2
+    1254 prompt tok, 213 out tok, 10.1s -> q5_rag_flat_run2.json
+
+[87/90] q5 / rag_flat / run 3
+    1254 prompt tok, 176 out tok, 8.7s -> q5_rag_flat_run3.json
+
+[88/90] q5 / cli / run 1
+    [step 1] ACTION: section Sec7
+    [step 2] ACTION: section Sec6
+    [step 3] ANSWER: The main caveats addressed are: (1) inflammation from irradiation ablation, mitigated by usi
+    [step 4] ACTION: similar "caveats" in Sec7
+    [step 5] ANSWER: The main caveats addressed are: (1) inflammation from irradiation ablation, mitigated by usi
+    [step 6] ACTION: similar "caveats" in Sec7
+    [step 7] ANSWER: The main caveats addressed are: (1) inflammation from irradiation ablation, mitigated by usi
+    60344 prompt tok, 663 out tok, 82.0s -> q5_cli_run1.json
+
+[89/90] q5 / cli / run 2
+    [step 1] ACTION: section Sec7
+    [step 2] ACTION: section Sec6
+    [step 3] ANSWER: The main caveats addressed in this study are: (1) inflammation from the irradiation method u
+    [step 4] ACTION: similar "caveats" in Sec7
+    [step 5] ACTION: similar "caveats" in Sec7
+    [step 6] ANSWER: The main caveats of this study are: (1) inflammation from the irradiation method used to abl
+    49609 prompt tok, 481 out tok, 59.4s -> q5_cli_run2.json
+
+[90/90] q5 / cli / run 3
+    [step 1] ACTION: section Sec7
+    [step 2] ANSWER: The main caveats of this study include: (1) inflammation resulting from focal irradiation us
+    [step 3] ACTION: similar "caveats" in Sec7
+    [step 4] ACTION: similar "control experiments" in Sec7
+    [step 5] ANSWER: The main caveats of this study include: (1) inflammation resulting from focal irradiation us
+    [step 6] ACTION: similar "caveats" in Sec7
+    [step 7] ACTION: similar "control experiments" in Sec7
+    [step 8] ANSWER: The main caveats of this study are: (1) inflammation from focal irradiation used to ablate n
+    72845 prompt tok, 587 out tok, 75.5s -> q5_cli_run3.json
+
+wrote 90 records to results/2026-10-23/records_pmc11289285/

@@ -1,0 +1,14 @@
+{
+  "question_id": "A2",
+  "condition": "lightrag",
+  "run": 1,
+  "model": "qwen3.5:9b",
+  "workspace": "maday2012",
+  "answer": "None",
+  "context_text": "None",
+  "context_chars": 4,
+  "prompt_tokens": 0,
+  "output_tokens": 0,
+  "seconds": 17675.5,
+  "mode": "hybrid"
+}

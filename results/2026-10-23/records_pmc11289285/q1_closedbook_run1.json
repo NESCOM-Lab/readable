@@ -1,0 +1,14 @@
+{
+  "answer": "Adult neurogenesis in the mouse hippocampus improves spatial encoding through a specific interplay of cell turnover and circuit dynamics.\n\n(1) **Manipulations:** Researchers typically use genetic ablation (e.g., *Dcx*-Cre/FlpO with tamoxifen) or pharmacological inhibitors (e.g., GSK3\u03b2 inhibitors) to suppress the birth of new granule cells in the dentate gyrus, while control groups maintain normal neurogenesis.\n\n(2) **Neural Effects:** Inhibition of neurogenesis reduces the diversity of neuronal representations, leading to increased pattern overlap between similar spatial contexts. This results in deficits in discriminating between similar environments in tasks like the Morris water maze or radial arm maze.\n\n(3) **Mechanism:** New neurons exhibit high excitability and distinct firing patterns initially. Their integration creates a \"pattern separation\" effect, decorrelating similar input patterns before they mature. This expands the representational capacity of the dentate gyrus, allowing for finer discrimination of spatial details.\n\n(4) **Contrast:** This view contrasts with earlier hypotheses that the dentate gyrus functioned primarily as a simple feed-forward filter or that neurogenesis merely replaced dying cells without functional consequence. Current literature posits that the continuous addition of new cells is essential for maintaining high-fidelity spatial maps, rather than just preserving circuit integrity.",
+  "prompt_tokens": 91,
+  "output_tokens": 277,
+  "seconds": 13.2,
+  "context_chars": 0,
+  "context_text": "",
+  "question_id": "q1",
+  "condition": "closedbook",
+  "run": 1,
+  "model": "qwen3.5:9b",
+  "workspace": "PMC11289285-test",
+  "observation_budget": 20000
+}

@@ -1,0 +1,322 @@
+INFO: [] Created new empty graph file: /tmp/lightrag_store/hara2006/graph_chunk_entity_relation.graphml
+INFO:nano-vectordb:Init {'embedding_dim': 768, 'metric': 'cosine', 'storage_file': '/tmp/lightrag_store/hara2006/vdb_entities.json'} 0 data
+INFO:nano-vectordb:Init {'embedding_dim': 768, 'metric': 'cosine', 'storage_file': '/tmp/lightrag_store/hara2006/vdb_relationships.json'} 0 data
+INFO:nano-vectordb:Init {'embedding_dim': 768, 'metric': 'cosine', 'storage_file': '/tmp/lightrag_store/hara2006/vdb_chunks.json'} 0 data
+INFO: Role LLM Configuration (initialized):
+INFO:  - extract: None/None, host=None, max_async=1, timeout=240
+INFO:  - keyword: None/None, host=None, max_async=1, timeout=240
+INFO:  - query: None/None, host=None, max_async=1, timeout=240
+INFO:  - vlm: None/None, host=None, max_async=1, timeout=240
+INFO: [] Process 32836 KV load full_docs with 0 records
+INFO: [] Process 32836 KV load text_chunks with 0 records
+INFO: [] Process 32836 KV load full_entities with 0 records
+INFO: [] Process 32836 KV load full_relations with 0 records
+INFO: [] Process 32836 KV load entity_chunks with 0 records
+INFO: [] Process 32836 KV load relation_chunks with 0 records
+INFO: [] Process 32836 KV load llm_response_cache with 0 records
+INFO: [] Process 32836 doc status load doc_status with 0 records
+[index] hara2006: building the graph, this is the slow part
+INFO: Processing 1 document(s)
+INFO: Parsing (native): doc-acd241f32b91373e412dc94d8de8604b
+INFO: Extracting stage 1/1: unknown_source
+INFO: Processing d-id: doc-acd241f32b91373e412dc94d8de8604b
+INFO: Chunking F(legacy): size=1200, split_only=False, overlap=100, doc_id: doc-acd241f32b91373e412dc94d8de8604b
+INFO: extract LLM func: 1 new workers initialized (Timeouts: Func: 240s, Worker: 480s, Health Check: 495s)
+WARNING: extract LLM func: Worker timeout for task 4484470768_231651.146030333 after 480s
+ERROR: Failed to extract entities and relationships: C[1/1]: doc-acd241f32b91373e412dc94d8de8604b-chunk-000: extract LLM func: Worker execution timeout after 480s
+ERROR: Traceback (most recent call last):
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/utils.py", line 2393, in wait_func
+    result = await future
+             ^^^^^^^^^^^^
+lightrag.utils.WorkerTimeoutError: Worker execution timeout after 480s
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/operate.py", line 4457, in _process_with_semaphore
+    result = await _process_single_content(chunk)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/operate.py", line 4181, in _process_single_content
+    final_result, timestamp = await use_llm_func_with_cache(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+    )
+    ^
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/utils.py", line 5282, in use_llm_func_with_cache
+    res: str = await use_llm_func(
+               ^^^^^^^^^^^^^^^^^^^
+        safe_user_prompt, system_prompt=safe_system_prompt, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/utils.py", line 2424, in wait_func
+    raise TimeoutError(f"{queue_name}: {str(e)}")
+TimeoutError: extract LLM func: Worker execution timeout after 480s
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/operate.py", line 4465, in _process_with_semaphore
+    raise prefixed_exception from e
+TimeoutError: doc-acd241f32b91373e412dc94d8de8604b-chunk-000: extract LLM func: Worker execution timeout after 480s
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/pipeline.py", line 5434, in process_single_document
+    chunk_results = await entity_relation_task
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/lightrag.py", line 3272, in _process_extract_entities
+    raise e
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/lightrag.py", line 3251, in _process_extract_entities
+    chunk_results = await extract_entities(
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/operate.py", line 4531, in extract_entities
+    raise prefixed_exception from first_exception
+TimeoutError: C[1/1]: doc-acd241f32b91373e412dc94d8de8604b-chunk-000: extract LLM func: Worker execution timeout after 480s
+
+ERROR: Failed to extract document 1/1: unknown_source
+INFO: Enqueued document processing pipeline stopped
+[index] hara2006: built in 1807s
+[query] A1 / lightrag / run 1
+INFO: keyword LLM func: 1 new workers initialized (Timeouts: Func: 240s, Worker: 480s, Health Check: 495s)
+WARNING: keyword LLM func: Worker timeout for task 4385118384_232131.19022975 after 480s
+ERROR: Query failed: keyword LLM func: Worker execution timeout after 480s
+WARNING: keyword LLM func: Worker timeout for task 4385118384_232611.207004625 after 480s
+ERROR: Query failed: keyword LLM func: Worker execution timeout after 480s
+    960.0s -> A1_lightrag_run1.json
+[query] A1 / lightrag / run 2
+INFO:  == LLM cache == saving: hybrid:keywords:2d0f15548190423e30f4d8803915a7ec
+INFO: Embedding func: 8 new workers initialized (Timeouts: Func: 30s, Worker: 60s, Health Check: 75s)
+INFO: Query nodes: Hara et al., conditionally deleted (top_k:6, cosine:0.2)
+INFO: Query edges: autophagy-related gene, neural cells (top_k:6, cosine:0.2)
+INFO: Raw search results: 0 entities, 0 relations, 0 vector chunks
+INFO: [kg_query] No query context could be built; returning no-result.
+INFO: Query nodes: Hara et al., conditionally deleted (top_k:6, cosine:0.2)
+INFO: Query edges: autophagy-related gene, neural cells (top_k:6, cosine:0.2)
+INFO: Raw search results: 0 entities, 0 relations, 0 vector chunks
+INFO: [kg_query] No query context could be built; returning no-result.
+    471.5s -> A1_lightrag_run2.json
+[query] A1 / lightrag / run 3
+INFO: Query nodes: Hara et al., conditionally deleted (top_k:6, cosine:0.2)
+INFO: Query edges: autophagy-related gene, neural cells (top_k:6, cosine:0.2)
+INFO: Raw search results: 0 entities, 0 relations, 0 vector chunks
+INFO: [kg_query] No query context could be built; returning no-result.
+INFO: Query nodes: Hara et al., conditionally deleted (top_k:6, cosine:0.2)
+INFO: Query edges: autophagy-related gene, neural cells (top_k:6, cosine:0.2)
+INFO: Raw search results: 0 entities, 0 relations, 0 vector chunks
+INFO: [kg_query] No query context could be built; returning no-result.
+    0.1s -> A1_lightrag_run3.json
+INFO: [] Created new empty graph file: /tmp/lightrag_store/maday2012/graph_chunk_entity_relation.graphml
+INFO:nano-vectordb:Init {'embedding_dim': 768, 'metric': 'cosine', 'storage_file': '/tmp/lightrag_store/maday2012/vdb_entities.json'} 0 data
+INFO:nano-vectordb:Init {'embedding_dim': 768, 'metric': 'cosine', 'storage_file': '/tmp/lightrag_store/maday2012/vdb_relationships.json'} 0 data
+INFO:nano-vectordb:Init {'embedding_dim': 768, 'metric': 'cosine', 'storage_file': '/tmp/lightrag_store/maday2012/vdb_chunks.json'} 0 data
+INFO: Role LLM Configuration (initialized):
+INFO:  - extract: None/None, host=None, max_async=1, timeout=240
+INFO:  - keyword: None/None, host=None, max_async=1, timeout=240
+INFO:  - query: None/None, host=None, max_async=1, timeout=240
+INFO:  - vlm: None/None, host=None, max_async=1, timeout=240
+[index] maday2012: building the graph, this is the slow part
+INFO: Processing 1 document(s)
+INFO: Parsing (native): doc-9956a8c264fffceb4cc1484a13f37fa7
+INFO: Extracting stage 1/1: unknown_source
+INFO: Processing d-id: doc-9956a8c264fffceb4cc1484a13f37fa7
+INFO: Chunking F(legacy): size=1200, split_only=False, overlap=100, doc_id: doc-9956a8c264fffceb4cc1484a13f37fa7
+INFO: extract LLM func: 1 new workers initialized (Timeouts: Func: 240s, Worker: 480s, Health Check: 495s)
+WARNING: extract LLM func: Worker timeout for task 5001019696_233562.792222625 after 480s
+ERROR: Failed to extract entities and relationships: C[1/7]: doc-9956a8c264fffceb4cc1484a13f37fa7-chunk-000: extract LLM func: Worker execution timeout after 480s
+ERROR: Traceback (most recent call last):
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/utils.py", line 2393, in wait_func
+    result = await future
+             ^^^^^^^^^^^^
+lightrag.utils.WorkerTimeoutError: Worker execution timeout after 480s
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/operate.py", line 4457, in _process_with_semaphore
+    result = await _process_single_content(chunk)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/operate.py", line 4181, in _process_single_content
+    final_result, timestamp = await use_llm_func_with_cache(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+    )
+    ^
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/utils.py", line 5282, in use_llm_func_with_cache
+    res: str = await use_llm_func(
+               ^^^^^^^^^^^^^^^^^^^
+        safe_user_prompt, system_prompt=safe_system_prompt, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/utils.py", line 2424, in wait_func
+    raise TimeoutError(f"{queue_name}: {str(e)}")
+TimeoutError: extract LLM func: Worker execution timeout after 480s
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/operate.py", line 4465, in _process_with_semaphore
+    raise prefixed_exception from e
+TimeoutError: doc-9956a8c264fffceb4cc1484a13f37fa7-chunk-000: extract LLM func: Worker execution timeout after 480s
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/pipeline.py", line 5434, in process_single_document
+    chunk_results = await entity_relation_task
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/lightrag.py", line 3272, in _process_extract_entities
+    raise e
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/lightrag.py", line 3251, in _process_extract_entities
+    chunk_results = await extract_entities(
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/operate.py", line 4531, in extract_entities
+    raise prefixed_exception from first_exception
+TimeoutError: C[1/7]: doc-9956a8c264fffceb4cc1484a13f37fa7-chunk-000: extract LLM func: Worker execution timeout after 480s
+
+ERROR: Failed to extract document 1/1: unknown_source
+INFO: Enqueued document processing pipeline stopped
+[index] maday2012: built in 13450s
+[query] A2 / lightrag / run 1
+INFO: keyword LLM func: 1 new workers initialized (Timeouts: Func: 240s, Worker: 480s, Health Check: 495s)
+WARNING: keyword LLM func: Worker timeout for task 4385118384_234042.808041208 after 480s
+ERROR: Query failed: keyword LLM func: Worker execution timeout after 480s
+WARNING: keyword LLM func: Worker timeout for task 4385118384_234522.816560541 after 480s
+ERROR: Query failed: keyword LLM func: Worker execution timeout after 480s
+    17675.5s -> A2_lightrag_run1.json
+[query] A2 / lightrag / run 2
+WARNING: keyword LLM func: Worker timeout for task 4385118384_235002.823832625 after 480s
+ERROR: Query failed: keyword LLM func: Worker execution timeout after 480s
+INFO:  == LLM cache == saving: hybrid:keywords:715c06418771f2a095079fc021df753b
+INFO: Embedding func: 8 new workers initialized (Timeouts: Func: 30s, Worker: 60s, Health Check: 75s)
+INFO: Query nodes: Maday et al., preferentially initiate (top_k:6, cosine:0.2)
+INFO: Query edges: autophagosomes, primary-neuron system, initiate (top_k:6, cosine:0.2)
+INFO: Raw search results: 0 entities, 0 relations, 0 vector chunks
+INFO: [kg_query] No query context could be built; returning no-result.
+    17983.1s -> A2_lightrag_run2.json
+[query] A2 / lightrag / run 3
+INFO: Query nodes: Maday et al., preferentially initiate (top_k:6, cosine:0.2)
+INFO: Query edges: autophagosomes, primary-neuron system, initiate (top_k:6, cosine:0.2)
+INFO: Raw search results: 0 entities, 0 relations, 0 vector chunks
+INFO: [kg_query] No query context could be built; returning no-result.
+INFO: Query nodes: Maday et al., preferentially initiate (top_k:6, cosine:0.2)
+INFO: Query edges: autophagosomes, primary-neuron system, initiate (top_k:6, cosine:0.2)
+INFO: Raw search results: 0 entities, 0 relations, 0 vector chunks
+INFO: [kg_query] No query context could be built; returning no-result.
+    0.1s -> A2_lightrag_run3.json
+INFO: [] Created new empty graph file: /tmp/lightrag_store/tsong2023/graph_chunk_entity_relation.graphml
+INFO:nano-vectordb:Init {'embedding_dim': 768, 'metric': 'cosine', 'storage_file': '/tmp/lightrag_store/tsong2023/vdb_entities.json'} 0 data
+INFO:nano-vectordb:Init {'embedding_dim': 768, 'metric': 'cosine', 'storage_file': '/tmp/lightrag_store/tsong2023/vdb_relationships.json'} 0 data
+INFO:nano-vectordb:Init {'embedding_dim': 768, 'metric': 'cosine', 'storage_file': '/tmp/lightrag_store/tsong2023/vdb_chunks.json'} 0 data
+INFO: Role LLM Configuration (initialized):
+INFO:  - extract: None/None, host=None, max_async=1, timeout=240
+INFO:  - keyword: None/None, host=None, max_async=1, timeout=240
+INFO:  - query: None/None, host=None, max_async=1, timeout=240
+INFO:  - vlm: None/None, host=None, max_async=1, timeout=240
+[index] tsong2023: building the graph, this is the slow part
+INFO: Processing 1 document(s)
+INFO: Parsing (native): doc-3c3fae16731ad268d4f8a709d7c4cad5
+INFO: Extracting stage 1/1: unknown_source
+INFO: Processing d-id: doc-3c3fae16731ad268d4f8a709d7c4cad5
+INFO: Chunking F(legacy): size=1200, split_only=False, overlap=100, doc_id: doc-3c3fae16731ad268d4f8a709d7c4cad5
+INFO: extract LLM func: 1 new workers initialized (Timeouts: Func: 240s, Worker: 480s, Health Check: 495s)
+WARNING: extract LLM func: Worker timeout for task 5001319760_235812.439939291 after 480s
+ERROR: Failed to extract entities and relationships: C[1/11]: doc-3c3fae16731ad268d4f8a709d7c4cad5-chunk-000: extract LLM func: Worker execution timeout after 480s
+ERROR: Traceback (most recent call last):
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/utils.py", line 2393, in wait_func
+    result = await future
+             ^^^^^^^^^^^^
+lightrag.utils.WorkerTimeoutError: Worker execution timeout after 480s
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/operate.py", line 4457, in _process_with_semaphore
+    result = await _process_single_content(chunk)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/operate.py", line 4181, in _process_single_content
+    final_result, timestamp = await use_llm_func_with_cache(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+    )
+    ^
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/utils.py", line 5282, in use_llm_func_with_cache
+    res: str = await use_llm_func(
+               ^^^^^^^^^^^^^^^^^^^
+        safe_user_prompt, system_prompt=safe_system_prompt, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/utils.py", line 2424, in wait_func
+    raise TimeoutError(f"{queue_name}: {str(e)}")
+TimeoutError: extract LLM func: Worker execution timeout after 480s
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/operate.py", line 4465, in _process_with_semaphore
+    raise prefixed_exception from e
+TimeoutError: doc-3c3fae16731ad268d4f8a709d7c4cad5-chunk-000: extract LLM func: Worker execution timeout after 480s
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/pipeline.py", line 5434, in process_single_document
+    chunk_results = await entity_relation_task
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/lightrag.py", line 3272, in _process_extract_entities
+    raise e
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/lightrag.py", line 3251, in _process_extract_entities
+    chunk_results = await extract_entities(
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "/private/tmp/lrag_venv/lib/python3.14/site-packages/lightrag/operate.py", line 4531, in extract_entities
+    raise prefixed_exception from first_exception
+TimeoutError: C[1/11]: doc-3c3fae16731ad268d4f8a709d7c4cad5-chunk-000: extract LLM func: Worker execution timeout after 480s
+
+ERROR: Failed to extract document 1/1: unknown_source
+INFO: Enqueued document processing pipeline stopped
+[index] tsong2023: built in 7891s
+[query] A3 / lightrag / run 1
+INFO: keyword LLM func: 1 new workers initialized (Timeouts: Func: 240s, Worker: 480s, Health Check: 495s)
+INFO:  == LLM cache == saving: hybrid:keywords:fef88f34b699e8af34d32d088393ee5d
+INFO: Embedding func: 8 new workers initialized (Timeouts: Func: 30s, Worker: 60s, Health Check: 75s)
+INFO: Query nodes: young, advanced-aged, autophagosome, rate, Tsong et al. (top_k:6, cosine:0.2)
+INFO: Query edges: autophagosome formation, neurons (top_k:6, cosine:0.2)
+INFO: Raw search results: 0 entities, 0 relations, 0 vector chunks
+INFO: [kg_query] No query context could be built; returning no-result.
+INFO: Query nodes: young, advanced-aged, autophagosome, rate, Tsong et al. (top_k:6, cosine:0.2)
+INFO: Query edges: autophagosome formation, neurons (top_k:6, cosine:0.2)
+INFO: Raw search results: 0 entities, 0 relations, 0 vector chunks
+INFO: [kg_query] No query context could be built; returning no-result.
+    288.9s -> A3_lightrag_run1.json
+[query] A3 / lightrag / run 2
+INFO: Query nodes: young, advanced-aged, autophagosome, rate, Tsong et al. (top_k:6, cosine:0.2)
+INFO: Query edges: autophagosome formation, neurons (top_k:6, cosine:0.2)
+INFO: Raw search results: 0 entities, 0 relations, 0 vector chunks
+INFO: [kg_query] No query context could be built; returning no-result.
+INFO: Query nodes: young, advanced-aged, autophagosome, rate, Tsong et al. (top_k:6, cosine:0.2)
+INFO: Query edges: autophagosome formation, neurons (top_k:6, cosine:0.2)
+INFO: Raw search results: 0 entities, 0 relations, 0 vector chunks
+INFO: [kg_query] No query context could be built; returning no-result.
+    0.0s -> A3_lightrag_run2.json
+[query] A3 / lightrag / run 3
+INFO: Query nodes: young, advanced-aged, autophagosome, rate, Tsong et al. (top_k:6, cosine:0.2)
+INFO: Query edges: autophagosome formation, neurons (top_k:6, cosine:0.2)
+INFO: Raw search results: 0 entities, 0 relations, 0 vector chunks
+INFO: [kg_query] No query context could be built; returning no-result.
+INFO: Query nodes: young, advanced-aged, autophagosome, rate, Tsong et al. (top_k:6, cosine:0.2)
+INFO: Query edges: autophagosome formation, neurons (top_k:6, cosine:0.2)
+INFO: Raw search results: 0 entities, 0 relations, 0 vector chunks
+INFO: [kg_query] No query context could be built; returning no-result.
+    0.0s -> A3_lightrag_run3.json

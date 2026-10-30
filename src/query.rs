@@ -11,6 +11,7 @@ use serde::Serialize;
 
 use crate::jats;
 use crate::model::{Paper, Section};
+use crate::workspace;
 
 #[derive(Subcommand)]
 pub enum Query {
@@ -26,8 +27,17 @@ pub enum Query {
     Tables { path: PathBuf },
     /// List the citations as JSON.
     Citations { path: PathBuf },
-    /// Search body paragraph text (case-insensitive) and print the matches.
-    Search { path: PathBuf, pattern: String },
+    /// Search the paper (case-insensitive) and print the matches.
+    Search {
+        path: PathBuf,
+        pattern: String,
+        /// Characters of surrounding text to show on each side of a match.
+        #[arg(long, default_value_t = 300)]
+        context: usize,
+        /// Stop after this many matches, so a common word cannot flood the output.
+        #[arg(long, default_value_t = 40)]
+        limit: usize,
+    },
 }
 
 /// A section without its body text, so the tree can be shown at a glance.
@@ -35,21 +45,44 @@ pub enum Query {
 struct OutlineNode {
     #[serde(skip_serializing_if = "Option::is_none")]
     id: Option<String>,
+    /// Workspace file stem, which 'section' accepts in place of the id.
+    file: String,
     #[serde(skip_serializing_if = "Option::is_none")]
     title: Option<String>,
     paragraphs: usize,
-    provenance: String,
     #[serde(skip_serializing_if = "Vec::is_empty")]
     subsections: Vec<OutlineNode>,
 }
 
-/// One paragraph that matched a search, with enough context to locate it.
+/// One piece of text a search looks at, labelled with where it came from.
+struct Searchable {
+    origin: &'static str,
+    location: Option<String>,
+    text: String,
+    provenance: String,
+}
+
+/// One match, with a window of surrounding text.
 #[derive(Serialize)]
 struct SearchHit {
+    /// "abstract", "body", "figure", "table" or "citation".
+    origin: &'static str,
+    /// Section title, figure label, or citation id, depending on the origin.
     #[serde(skip_serializing_if = "Option::is_none")]
-    section: Option<String>,
+    location: Option<String>,
     provenance: String,
     snippet: String,
+}
+
+/// Matches found, and how many of them are shown. 'note' spells out an empty
+/// or clipped result so it does not read as 'nothing to find'.
+#[derive(Serialize)]
+struct SearchResults {
+    matches: usize,
+    shown: usize,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    note: Option<String>,
+    hits: Vec<SearchHit>,
 }
 
 pub fn run(query: &Query) -> Result<(), String> {
@@ -66,7 +99,9 @@ pub fn run(query: &Query) -> Result<(), String> {
             let paper = load(path)?;
             match find_section(&paper.body.sections, id) {
                 Some(section) => print_json(section),
-                None => Err(format!("no section with id '{id}'")),
+                None => Err(format!(
+                    "no section matching '{id}'; run 'outline' for the ids and file names"
+                )),
             }
         }
         Query::Figures { path } => {
@@ -81,18 +116,21 @@ pub fn run(query: &Query) -> Result<(), String> {
             let paper = load(path)?;
             print_json(&paper.body.citations)
         }
-        Query::Search { path, pattern } => {
+        Query::Search {
+            path,
+            pattern,
+            context,
+            limit,
+        } => {
             let paper = load(path)?;
-            let mut hits = Vec::new();
-            search_sections(&paper.body.sections, &pattern.to_lowercase(), &mut hits);
-            print_json(&hits)
+            print_json(&search(&paper, pattern, *context, *limit))
         }
     }
 }
 
 /// Load a paper from a workspace directory (via its 'paper.jats.xml') or from a
 /// JATS XML file directly.
-fn load(path: &Path) -> Result<Paper, String> {
+pub(crate) fn load(path: &Path) -> Result<Paper, String> {
     let xml_path = if path.is_dir() {
         path.join("paper.jats.xml")
     } else {
@@ -120,53 +158,184 @@ fn print_json<T: Serialize>(value: &T) -> Result<(), String> {
 /// Build the outline tree, dropping paragraph text but keeping its count.
 fn outline(sections: &[Section]) -> Vec<OutlineNode> {
     let mut nodes = Vec::new();
-    for section in sections {
+    for (index, section) in sections.iter().enumerate() {
         nodes.push(OutlineNode {
             id: section.id.clone(),
+            file: workspace::section_file_stem(section, index + 1),
             title: section.title.clone(),
             paragraphs: section.paragraphs.len(),
-            provenance: section.provenance.clone(),
             subsections: outline(&section.subsections),
         });
     }
     nodes
 }
 
-/// Depth-first search for a section by id, including subsections.
-fn find_section<'a>(sections: &'a [Section], id: &str) -> Option<&'a Section> {
-    for section in sections {
-        if section.id.as_deref() == Some(id) {
+/// Depth-first search for a section, including subsections. The needle may be
+/// the JATS id ("Sec2"), the workspace file stem ("sec2_results", with or
+/// without the ".md"), or just the slugified title ("results") — the README and
+/// the outline advertise different ones, and all of them should work.
+fn find_section<'a>(sections: &'a [Section], needle: &str) -> Option<&'a Section> {
+    let needle = workspace::slugify(needle.trim_end_matches(".md"));
+
+    for (index, section) in sections.iter().enumerate() {
+        let id = section.id.as_deref().map(workspace::slugify);
+        let title = section.title.as_deref().map(workspace::slugify);
+        let stem = workspace::section_file_stem(section, index + 1);
+
+        if id.as_deref() == Some(needle.as_str())
+            || title.as_deref() == Some(needle.as_str())
+            || stem == needle
+        {
             return Some(section);
         }
-        if let Some(found) = find_section(&section.subsections, id) {
+        if let Some(found) = find_section(&section.subsections, &needle) {
             return Some(found);
         }
     }
     None
 }
 
-/// Collect every paragraph whose text contains `needle` (already lowercased).
-fn search_sections(sections: &[Section], needle: &str, hits: &mut Vec<SearchHit>) {
-    for section in sections {
-        for paragraph in &section.paragraphs {
-            if let Some(position) = paragraph.text.to_lowercase().find(needle) {
+/// Search everything in the paper: the abstract, body paragraphs, figure and
+/// table captions, and the reference list.
+fn search(paper: &Paper, pattern: &str, context: usize, limit: usize) -> SearchResults {
+    let needle = pattern.to_lowercase();
+    let mut hits = Vec::new();
+    let mut matches = 0;
+
+    for item in searchable(paper) {
+        for (start, end) in find_all(&item.text, &needle) {
+            matches += 1;
+            if hits.len() < limit {
                 hits.push(SearchHit {
-                    section: section.title.clone(),
-                    provenance: paragraph.provenance.clone(),
-                    snippet: snippet(&paragraph.text, position, needle.len()),
+                    origin: item.origin,
+                    location: item.location.clone(),
+                    provenance: item.provenance.clone(),
+                    snippet: snippet(&item.text, start, end, context),
                 });
             }
         }
-        search_sections(&section.subsections, needle, hits);
+    }
+
+    let note = if matches == 0 {
+        Some(format!(
+            "no match for '{pattern}'; this is a plain substring search, so try a \
+             shorter word or read a section from 'outline'"
+        ))
+    } else if matches > hits.len() {
+        Some(format!("showing {} of {matches} matches; narrow the pattern to see the rest", hits.len()))
+    } else {
+        None
+    };
+
+    SearchResults {
+        matches,
+        shown: hits.len(),
+        note,
+        hits,
     }
 }
 
-/// A short window of text around a match, with an ellipsis when it is clipped.
-fn snippet(text: &str, match_start: usize, match_len: usize) -> String {
-    const CONTEXT: usize = 60;
+/// Everything worth searching, in the order a reader would meet it.
+fn searchable(paper: &Paper) -> Vec<Searchable> {
+    let mut items = Vec::new();
 
-    let start = clamp_to_char_boundary(text, match_start.saturating_sub(CONTEXT), false);
-    let end = clamp_to_char_boundary(text, (match_start + match_len + CONTEXT).min(text.len()), true);
+    if let Some(abstract_text) = &paper.metadata.abstract_text {
+        items.push(Searchable {
+            origin: "abstract",
+            location: None,
+            text: abstract_text.clone(),
+            provenance: "article/front/abstract".to_string(),
+        });
+    }
+
+    collect_section_text(&paper.body.sections, &mut items);
+
+    for figure in &paper.body.figures {
+        if let Some(caption) = &figure.caption {
+            items.push(Searchable {
+                origin: "figure",
+                location: figure.label.clone().or_else(|| figure.id.clone()),
+                text: caption.clone(),
+                provenance: figure.provenance.clone(),
+            });
+        }
+    }
+
+    for table in &paper.body.tables {
+        if let Some(caption) = &table.caption {
+            items.push(Searchable {
+                origin: "table",
+                location: table.label.clone().or_else(|| table.id.clone()),
+                text: caption.clone(),
+                provenance: table.provenance.clone(),
+            });
+        }
+    }
+
+    for citation in &paper.body.citations {
+        items.push(Searchable {
+            origin: "citation",
+            location: citation.id.clone(),
+            text: citation.text.clone(),
+            provenance: citation.provenance.clone(),
+        });
+    }
+
+    items
+}
+
+fn collect_section_text(sections: &[Section], items: &mut Vec<Searchable>) {
+    for section in sections {
+        for paragraph in &section.paragraphs {
+            items.push(Searchable {
+                origin: "body",
+                location: section.title.clone(),
+                text: paragraph.text.clone(),
+                provenance: paragraph.provenance.clone(),
+            });
+        }
+        collect_section_text(&section.subsections, items);
+    }
+}
+
+/// Byte ranges of every case-insensitive occurrence of `needle` (already
+/// lowercased) in `text`. Lowercasing can change how many bytes a character
+/// takes, so offsets found in a lowered copy are mapped back to the original.
+fn find_all(text: &str, needle: &str) -> Vec<(usize, usize)> {
+    let mut ranges = Vec::new();
+    if needle.is_empty() {
+        return ranges;
+    }
+
+    // Remember which original offset each byte of the lowered copy came from.
+    let mut lowered = String::with_capacity(text.len());
+    let mut origins = Vec::with_capacity(text.len() + 1);
+    for (offset, character) in text.char_indices() {
+        for lowered_char in character.to_lowercase() {
+            let before = lowered.len();
+            lowered.push(lowered_char);
+            for _ in before..lowered.len() {
+                origins.push(offset);
+            }
+        }
+    }
+    origins.push(text.len());
+
+    let mut from = 0;
+    while let Some(found) = lowered[from..].find(needle) {
+        let start = from + found;
+        let end = start + needle.len();
+        ranges.push((origins[start], origins[end]));
+        from = end;
+    }
+
+    ranges
+}
+
+/// A window of text around a match, with an ellipsis when it is clipped.
+fn snippet(text: &str, match_start: usize, match_end: usize, context: usize) -> String {
+    let start = clamp_to_char_boundary(text, match_start.saturating_sub(context), false);
+    let end = clamp_to_char_boundary(text, (match_end + context).min(text.len()), true);
 
     let mut result = String::new();
     if start > 0 {

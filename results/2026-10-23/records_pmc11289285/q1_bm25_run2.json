@@ -1,0 +1,22 @@
+{
+  "answer": "Adult neurogenesis improves spatial information encoding by increasing the gain of dentate gyrus (DG) neurons, enhancing their ability to tune to spatial features. Experimentally, researchers used in vivo imaging on na\u00efve mice exposed to a moving treadmill, manipulating neurogenesis via environmental enrichment (EE), ablation (ABNs), or irradiation. Results showed that two weeks of EE increased spatial information content in the DG, an effect requiring active adult-born neurons (ABNs). Conversely, ablating or silencing ABNs decreased spatial information, while irradiated animals exhibited lower decoder accuracy than non-irradiated counterparts. The proposed mechanism is that adult neurogenesis boosts neuronal gain to refine spatial representations, mediating the beneficial effects of EE on memory and learning. This contrasts with prior views by identifying a specific neural mechanism\u2014increased gain via immature ABNs\u2014rather than attributing benefits solely to general plasticity. The study reveals that reducing neurogenesis leads to memory encoding deficits, explaining why environmental manipulations are beneficial.",
+  "prompt_tokens": 629,
+  "output_tokens": 203,
+  "seconds": 8.1,
+  "context_chars": 2475,
+  "context_text": "[CR87] Frechou, M. A. et al. Dataset for \u2018Adult neurogenesis improves spatial information encoding in the mouse hippocampus\u2019. Zenodo 10.5281/zenodo.10985968 (2024).10.1038/s41467-024-50699-xPMC1128928539080283\n\n[CR88] Frechou, M. A. et al. Analysis code for \u2018Adult neurogenesis improves spatial information encoding in the mouse hippocampus\u2019. Zenodo /10.5281/zenodo.10986236 (2024).10.1038/s41467-024-50699-xPMC1128928539080283\n\n[Discussion] In this work we used a similar in vivo imaging approach to determine how the DG spatial code changes when adult neurogenesis is upregulated with EE or, conversely, when neurogenesis is ablated, or ABNs are silenced. We imaged na\u00efve mice during their first exposure to a moving treadmill. Our results showed that 2 weeks of EE housing prior to imaging increases spatial information content in the DG, and that this increase requires ABNs (Fig. 1).\n\n[Adult neurogenesis increases DG spatial information in animals exposed to EE] Irradiated animals also had lower decoder accuracy than their non-irradiated counterparts. These results suggest that the effects of EE on spatial encoding in the DG are driven primarily by immature ABNs, and that decreasing adult neurogenesis results in a decrease in spatial information in the DG, which could explain why reducing neurogenesis results in memory encoding deficits.\n\n[abstract] We propose that adult neurogenesis improves representations of space by increasing the gain of dentate gyrus neurons and thereby improving their ability to tune to spatial features. This mechanism may mediate the beneficial effects of environmental enrichment on spatial learning and memory.\n\n[Discussion] Our results showed that 2 weeks of EE housing prior to imaging increases spatial information content in the DG, and that this increase requires ABNs (Fig. 1). This change in neural representations following EE is a new phenotype that potentially explains why EE and similar environmental manipulations are beneficial to memory and learning. We also found that ablating ABNs decreases spatial information content in the DG (Figs. 1f, 2e).",
+  "retrieved_from": [
+    "CR87",
+    "CR88",
+    "Sec7/p1/w3",
+    "Sec3/p1/w12",
+    "abstract/w4",
+    "Sec7/p1/w4"
+  ],
+  "question_id": "q1",
+  "condition": "bm25",
+  "run": 2,
+  "model": "qwen3.5:9b",
+  "workspace": "PMC11289285-test",
+  "observation_budget": 20000
+}

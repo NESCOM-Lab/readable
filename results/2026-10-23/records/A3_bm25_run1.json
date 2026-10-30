@@ -1,0 +1,22 @@
+{
+  "answer": "Based on the retrieved excerpts, the rate of autophagosome formation showed a significant deficit in neurons from advanced-aged mice compared to young mice. Specifically, there was a **70% drop** in the rates of autophagosome formation between neurons from young and advanced aged mice. While the rates of initiation and nucleation of phagophore formation appeared unchanged with age, the generation of LC3-II-positive autophagosomes was dramatically inhibited in neurons from aged mice.",
+  "prompt_tokens": 819,
+  "output_tokens": 98,
+  "seconds": 6.1,
+  "context_chars": 3537,
+  "context_text": "[abstract] Misregulation of neuronal macroautophagy/autophagy has been implicated in age-related neurodegenerative diseases. We compared autophagosome formation and maturation in primary murine neurons during development and through aging to elucidate how aging affects neuronal autophagy. We observed an age-related decrease in the rate of autophagosome formation leading to a significant decrease in the density of autophagosomes along the axon.\n\n[Autophagosome biogenesis and transport flux decrease with age] Additionally, we did not observe any significant changes in the protein levels of ATG13 and ATG14 in immunoblot of whole brain lysates (Figure S1). In striking contrast, but consistent with our previous results [27], we observed a significant deficit in the rates of autophagosome formation corresponding to a 70% drop between neurons from young and advanced aged mice (Figure 1D), consistent with the dysregulation of autophagosome biogenesis at the axonal terminal of DRG neurons during aging. Therefore, while the rates of both initiation and nucleation of phagophore formation appear unchanged with age, the generation of LC3-II-positive autophagosomes is dramatically inhibited in neurons from aged mice.\n\n[Autophagosome biogenesis and transport flux decrease with age] Misregulation of autophagy has been implicated in neurodegeneration. Since age is the most common risk factor for neurodegenerative disease [28], we asked how aging affects each of the steps of basal autophagy in murine neurons. Using GFP-LC3B transgenic mice [29], we assessed the rate of autophagosome biogenesis in primary DRG neurons from four different ages of mice: 1-month-old young mice, 3-month-old young adult mice, 16\u201317-month-old aged mice, and 24-month-old advanced aged mice.\n\n[abstract] We observed an age-related decrease in the rate of autophagosome formation leading to a significant decrease in the density of autophagosomes along the axon. Next, we identified a surprising increase in the maturation of autophagic vesicles in neurons from aged mice. While we did not detect notable changes in endolysosomal content in the distal axon during early aging, we did observe a significant loss of acidified vesicles in the distal axon during late aging.\n\n[Regulation of AV-associated motor adaptor proteins may modulate axonal AV maturation during early aging] We did not observe age-related changes in ACAP2 expression in brain lysate (Figure 6A,B). Conversely, we did observe a significant decrease in ACAP3 expression in brain lysate between young and aged mice, which was not maintained in advanced aged mouse brain lysate (Figure 6A,B). An age-related decrease in ARF6 GAP expression could lead to an increase in ARF6-GTP at the autophagosome, promoting retrograde transport of autophagosomes via MAPK8IP3/JIP3 in neurons from aged mice.\n\n[Regulation of AV-associated motor adaptor proteins may modulate axonal AV maturation during early aging] We detected no age-related changes in protein expression of tubulin or dynein cytoplasmic 1 intermediate chains. Surprisingly, we did observe a slight, yet significant decrease in KIF5B (kinesin family member 5B) expression between young and advanced aged mice. Furthermore, we found an increase in DCTN1/p150Glued (dynactin 1) expression between young and aged mice (Figure S7).",
+  "retrieved_from": [
+    "abstract/w1",
+    "s0002-s2001/p1/w4",
+    "s0002-s2001/p1/w1",
+    "abstract/w2",
+    "s0002-s2007/p3/w5",
+    "s0002-s2007/p1/w2"
+  ],
+  "question_id": "A3",
+  "condition": "bm25",
+  "run": 1,
+  "model": "qwen3.5:9b",
+  "workspace": "tsong2023",
+  "observation_budget": 20000
+}

@@ -1,0 +1,241 @@
+
+[1/54] A1 / closedbook / run 1
+[setup] hara2006: 1263 chars across 0 section files
+[setup] hara2006: 3 retrieval units
+[setup] hara2006: 2 markdown chunks, embedded in 0.1s
+    54 prompt tok, 182 out tok, 9.8s -> A1_closedbook_run1.json
+
+[2/54] A1 / closedbook / run 2
+    54 prompt tok, 166 out tok, 6.5s -> A1_closedbook_run2.json
+
+[3/54] A1 / closedbook / run 3
+    54 prompt tok, 162 out tok, 6.4s -> A1_closedbook_run3.json
+
+[4/54] A1 / bm25 / run 1
+    357 prompt tok, 104 out tok, 5.0s -> A1_bm25_run1.json
+
+[5/54] A1 / bm25 / run 2
+    357 prompt tok, 110 out tok, 5.3s -> A1_bm25_run2.json
+
+[6/54] A1 / bm25 / run 3
+    357 prompt tok, 110 out tok, 5.2s -> A1_bm25_run3.json
+
+[7/54] A1 / raw / run 1
+    309 prompt tok, 71 out tok, 6.7s -> A1_raw_run1.json
+
+[8/54] A1 / raw / run 2
+    309 prompt tok, 71 out tok, 3.6s -> A1_raw_run2.json
+
+[9/54] A1 / raw / run 3
+    309 prompt tok, 67 out tok, 3.5s -> A1_raw_run3.json
+
+[10/54] A1 / rag / run 1
+    357 prompt tok, 66 out tok, 6.3s -> A1_rag_run1.json
+
+[11/54] A1 / rag / run 2
+    357 prompt tok, 64 out tok, 3.5s -> A1_rag_run2.json
+
+[12/54] A1 / rag / run 3
+    357 prompt tok, 64 out tok, 3.5s -> A1_rag_run3.json
+
+[13/54] A1 / rag_flat / run 1
+    291 prompt tok, 65 out tok, 3.4s -> A1_rag_flat_run1.json
+
+[14/54] A1 / rag_flat / run 2
+    291 prompt tok, 65 out tok, 3.4s -> A1_rag_flat_run2.json
+
+[15/54] A1 / rag_flat / run 3
+    291 prompt tok, 67 out tok, 3.5s -> A1_rag_flat_run3.json
+
+[16/54] A1 / cli / run 1
+    [step 1] ACTION: section abstract/w2
+    [step 2] ACTION: outline
+    [step 3] ACTION: similar Atg5 in abstract/w2
+    [step 4] ANSWER: The autophagy-related gene conditionally deleted in neural cells in the Hara et al. study is
+    [step 5] ACTION: similar "conditionally deleted" in abstract/w2
+    [step 6] ACTION: similar "conditionally deleted" in abstract/w2
+    [step 7] ACTION: similar "specifically in neural cells" in abstract/w2
+    [step 8] ANSWER: The autophagy-related gene conditionally deleted in neural cells in the Hara et al. study is
+    14544 prompt tok, 133 out tok, 33.9s -> A1_cli_run1.json
+
+[17/54] A1 / cli / run 2
+    [step 1] ACTION: section abstract/w2
+    [step 2] ACTION: outline
+    [step 3] ACTION: similar Atg5 in abstract/w2
+    [step 4] ANSWER: The autophagy-related gene conditionally deleted in neural cells in the Hara et al. study is
+    [step 5] ACTION: section abstract/w2
+    [step 6] ACTION: outline
+    [step 7] ACTION: similar Atg5 in abstract/w2
+    [step 8] ANSWER: The autophagy-related gene conditionally deleted in neural cells in the Hara et al. study is
+    11859 prompt tok, 116 out tok, 27.4s -> A1_cli_run2.json
+
+[18/54] A1 / cli / run 3
+    [step 1] ACTION: section abstract/w2
+    [step 2] ACTION: outline
+    [step 3] ANSWER: The autophagy-related gene conditionally deleted in neural cells in the Hara et al. study wa
+    [step 4] ACTION: outline
+    [step 5] ACTION: similar "conditionally deleted in neural cells"
+    [step 6] ACTION: similar "specifically in neural cells" in abstract/w2
+    [step 7] ANSWER: The autophagy-related gene conditionally deleted in neural cells in the Hara et al. study wa
+    9026 prompt tok, 113 out tok, 20.6s -> A1_cli_run3.json
+
+[19/54] A2 / closedbook / run 1
+[setup] maday2012: 30243 chars across 3 section files
+[setup] maday2012: 151 retrieval units
+[setup] maday2012: 64 markdown chunks, embedded in 1.0s
+    54 prompt tok, 279 out tok, 13.5s -> A2_closedbook_run1.json
+
+[20/54] A2 / closedbook / run 2
+    54 prompt tok, 220 out tok, 8.5s -> A2_closedbook_run2.json
+
+[21/54] A2 / closedbook / run 3
+    54 prompt tok, 239 out tok, 9.3s -> A2_closedbook_run3.json
+
+[22/54] A2 / bm25 / run 1
+    855 prompt tok, 103 out tok, 6.4s -> A2_bm25_run1.json
+
+[23/54] A2 / bm25 / run 2
+    855 prompt tok, 95 out tok, 4.7s -> A2_bm25_run2.json
+
+[24/54] A2 / bm25 / run 3
+    855 prompt tok, 96 out tok, 4.7s -> A2_bm25_run3.json
+
+[25/54] A2 / raw / run 1
+    8061 prompt tok, 159 out tok, 33.4s -> A2_raw_run1.json
+
+[26/54] A2 / raw / run 2
+    8061 prompt tok, 148 out tok, 10.0s -> A2_raw_run2.json
+
+[27/54] A2 / raw / run 3
+    8061 prompt tok, 149 out tok, 10.1s -> A2_raw_run3.json
+
+[28/54] A2 / rag / run 1
+    676 prompt tok, 68 out tok, 176.1s -> A2_rag_run1.json
+
+[29/54] A2 / rag / run 2
+    676 prompt tok, 71 out tok, 3.3s -> A2_rag_run2.json
+
+[30/54] A2 / rag / run 3
+    676 prompt tok, 71 out tok, 3.3s -> A2_rag_run3.json
+
+[31/54] A2 / rag_flat / run 1
+    868 prompt tok, 130 out tok, 7.4s -> A2_rag_flat_run1.json
+
+[32/54] A2 / rag_flat / run 2
+    868 prompt tok, 113 out tok, 5.4s -> A2_rag_flat_run2.json
+
+[33/54] A2 / rag_flat / run 3
+    868 prompt tok, 132 out tok, 6.1s -> A2_rag_flat_run3.json
+
+[34/54] A2 / cli / run 1
+    [step 1] ACTION: section Sec3
+    [step 2] ANSWER: In the primary-neuron system studied by Maday et al., autophagosomes preferentially initiate
+    [step 3] ACTION: similar "preferentially initiate" in Sec3
+    [step 4] ANSWER: In the primary-neuron system studied by Maday et al., autophagosomes preferentially initiate
+    [step 5] ACTION: similar "preferentially initiate" in Sec1
+    [step 6] ANSWER: In the primary-neuron system studied by Maday et al., autophagosomes preferentially initiate
+    [step 7] ACTION: section Sec1
+    [step 8] ANSWER: In the primary-neuron system studied by Maday et al., autophagosomes preferentially initiate
+    48321 prompt tok, 244 out tok, 59.5s -> A2_cli_run1.json
+
+[35/54] A2 / cli / run 2
+    [step 1] ACTION: section Sec3
+    [step 2] ANSWER: Autophagosomes preferentially initiate in the distal axon (specifically within bulbous regio
+    [step 3] ACTION: section Sec1
+    [step 4] ANSWER: Autophagosomes preferentially initiate in the distal axon (specifically within bulbous regio
+    [step 5] ACTION: section Sec2
+    [step 6] ANSWER: Autophagosomes preferentially initiate in the distal axon (specifically within bulbous regio
+    [step 7] ACTION: section Sec4
+    [step 8] ANSWER: Autophagosomes preferentially initiate in the distal axon (specifically within bulbous regio
+    58563 prompt tok, 232 out tok, 61.7s -> A2_cli_run2.json
+
+[36/54] A2 / cli / run 3
+    [step 1] ACTION: section Sec3
+    [step 2] ANSWER: Autophagosomes preferentially initiate in the distal axon (specifically within bulbous regio
+    [step 3] ACTION: section Sec1
+    [step 4] ANSWER: Autophagosomes preferentially initiate in the distal axon (specifically within bulbous regio
+    [step 5] ACTION: section Sec2
+    [step 6] ANSWER: Autophagosomes preferentially initiate in the distal axon (specifically within bulbous regio
+    [step 7] ACTION: section Sec4
+    [step 8] ANSWER: Autophagosomes preferentially initiate in the distal axon, specifically within bulbous regio
+    58407 prompt tok, 179 out tok, 59.1s -> A2_cli_run3.json
+
+[37/54] A3 / closedbook / run 1
+[setup] tsong2023: 51769 chars across 6 section files
+[setup] tsong2023: 135 retrieval units
+[setup] tsong2023: 92 markdown chunks, embedded in 1.5s
+    55 prompt tok, 228 out tok, 11.3s -> A3_closedbook_run1.json
+
+[38/54] A3 / closedbook / run 2
+    55 prompt tok, 212 out tok, 8.2s -> A3_closedbook_run2.json
+
+[39/54] A3 / closedbook / run 3
+    55 prompt tok, 198 out tok, 7.7s -> A3_closedbook_run3.json
+
+[40/54] A3 / bm25 / run 1
+    819 prompt tok, 98 out tok, 6.1s -> A3_bm25_run1.json
+
+[41/54] A3 / bm25 / run 2
+    819 prompt tok, 102 out tok, 4.8s -> A3_bm25_run2.json
+
+[42/54] A3 / bm25 / run 3
+    819 prompt tok, 100 out tok, 4.8s -> A3_bm25_run3.json
+
+[43/54] A3 / raw / run 1
+    12447 prompt tok, 111 out tok, 44.7s -> A3_raw_run1.json
+
+[44/54] A3 / raw / run 2
+    12447 prompt tok, 111 out tok, 9.7s -> A3_raw_run2.json
+
+[45/54] A3 / raw / run 3
+    12447 prompt tok, 119 out tok, 10.0s -> A3_raw_run3.json
+
+[46/54] A3 / rag / run 1
+    803 prompt tok, 100 out tok, 8.7s -> A3_rag_run1.json
+
+[47/54] A3 / rag / run 2
+    803 prompt tok, 100 out tok, 4.7s -> A3_rag_run2.json
+
+[48/54] A3 / rag / run 3
+    803 prompt tok, 100 out tok, 4.7s -> A3_rag_run3.json
+
+[49/54] A3 / rag_flat / run 1
+    1229 prompt tok, 65 out tok, 6.0s -> A3_rag_flat_run1.json
+
+[50/54] A3 / rag_flat / run 2
+    1229 prompt tok, 49 out tok, 4.0s -> A3_rag_flat_run2.json
+
+[51/54] A3 / rag_flat / run 3
+    1229 prompt tok, 100 out tok, 5.9s -> A3_rag_flat_run3.json
+
+[52/54] A3 / cli / run 1
+    [step 1] ACTION: section s0002-s2001
+    [step 2] ANSWER: The rate of autophagosome formation decreased by 70% between young and advanced-aged neurons
+    [step 3] ACTION: similar "rate of autophagosome formation" in s0002-s2001
+    [step 4] ACTION: similar "rate of autophagosome formation" in s0002-s2001
+    [step 5] ACTION: similar "rate of autophagosome formation" in s0002-s2001
+    [step 6] ACTION: similar "rate of autophagosome formation" in s0002-s2001
+    [step 7] ACTION: similar "rate of autophagosome formation" in s0002-s2001
+    [step 8] ANSWER: The rate of autophagosome formation decreased by 70% between young and advanced-aged neurons
+    48214 prompt tok, 184 out tok, 57.2s -> A3_cli_run1.json
+
+[53/54] A3 / cli / run 2
+    [step 1] ACTION: section s0002-s2001
+    [step 2] ANSWER: In Tsong et al., the rate of autophagosome formation decreased significantly between young a
+    [step 3] ACTION: similar "rate of autophagosome formation" in s0002-s2001
+    [step 4] ACTION: similar "rate of autophagosome formation" in s0002-s2001
+    [step 5] ACTION: similar "rate of autophagosome formation" in s0002-s2001
+    [step 6] ACTION: similar "rate of autophagosome formation" in s0002-s2001
+    [step 7] ACTION: similar "rate of autophagosome formation" in s0002-s2001
+    [step 8] ANSWER: In Tsong et al., the rate of autophagosome formation decreased significantly between young a
+    48280 prompt tok, 206 out tok, 48.5s -> A3_cli_run2.json
+
+[54/54] A3 / cli / run 3
+    [step 1] ACTION: section s0002-s2001
+    [step 2] ACTION: similar "rate of autophagosome formation" in s0002-s2001
+    [step 3] ACTION: similar "rate of autophagosome formation" in s0002-s2001
+    [step 4] ACTION: similar "rate of autophagosome formation" in s0002-s2001
+    [step 5] ANSWER: In Tsong et al., the rate of autophagosome formation decreased significantly between young a
+    25142 prompt tok, 161 out tok, 30.9s -> A3_cli_run3.json
+
+wrote 54 records to results/2026-10-23/records/

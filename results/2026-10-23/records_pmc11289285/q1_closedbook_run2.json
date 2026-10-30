@@ -1,0 +1,14 @@
+{
+  "answer": "In adult mice, neurogenesis in the dentate gyrus is experimentally manipulated by ablating newborn neurons (using genetic ablation or irradiation) or enhancing it via exercise. These manipulations reveal that newborn neurons exhibit unique electrophysiological properties, including higher excitability and distinct dendritic integration.\n\nThe measured neural effect is a reduction in \"pattern separation\" efficiency when neurogenesis is blocked. Specifically, the ability to distinguish between similar spatial contexts (e.g., two adjacent arms of a water maze) deteriorates, leading to increased interference errors. Conversely, enhanced neurogenesis improves this discrimination.\n\nThe proposed mechanism involves newborn neurons acting as a \"pattern separator.\" Their high excitability and sparse firing allow them to decorrelate similar input patterns from the entorhinal cortex before they reach CA3. This creates a more orthogonal representation of similar environments, preventing overlap in memory traces.\n\nThis contrasts with prior views that treated the hippocampus as a single, homogeneous unit where all neurons function identically. Earlier models suggested memory encoding relied primarily on synaptic plasticity (LTP/LTD) in existing neurons, ignoring the functional specialization of the adult-born population. Current literature posits that neurogenesis provides a dynamic, structural mechanism for resolving spatial ambiguity that static synaptic changes alone cannot achieve.",
+  "prompt_tokens": 91,
+  "output_tokens": 261,
+  "seconds": 10.2,
+  "context_chars": 0,
+  "context_text": "",
+  "question_id": "q1",
+  "condition": "closedbook",
+  "run": 2,
+  "model": "qwen3.5:9b",
+  "workspace": "PMC11289285-test",
+  "observation_budget": 20000
+}
