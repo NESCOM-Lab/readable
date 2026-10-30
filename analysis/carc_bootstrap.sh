@@ -139,8 +139,11 @@ if [ "$ACTUAL" != "$EXPECTED" ]; then
 fi
 echo "sha256 matches the benchmark manifest"
 
-./target/release/pgraph index maday2012
-python3 analysis/embed.py maday2012
+# parse builds the workspace folder from the XML; index then turns that
+# workspace into retrieval units.
+./target/release/pgraph parse papers/maday2012.xml -o papers/maday2012
+./target/release/pgraph index papers/maday2012
+python3 analysis/embed.py papers/maday2012
 
 say "questions"
 python3 analysis/benchmark_to_questions.py \
