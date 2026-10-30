@@ -23,11 +23,37 @@ mkdir -p "$PROJECT/ollama" "$OLLAMA_MODELS"
 df -h "$PROJECT" | tail -1
 
 say "ollama"
+# Pinned, because ollama's download layout has already changed once under this
+# script: the .tgz is gone and the releases are zstd tarballs now.
+OLLAMA_VERSION=v0.40.13
+OLLAMA_TARBALL=ollama-linux-amd64.tar.zst
+OLLAMA_URL=https://github.com/ollama/ollama/releases/download/$OLLAMA_VERSION/$OLLAMA_TARBALL
+
 if [ -x "$PROJECT/ollama/bin/ollama" ]; then
     echo "already installed"
 else
-    curl -fL https://ollama.com/download/ollama-linux-amd64.tgz \
-        | tar -xz -C "$PROJECT/ollama"
+    curl -fL --retry 3 -o "$PROJECT/$OLLAMA_TARBALL" "$OLLAMA_URL"
+
+    # zstd is not always present, and not always wired into tar, so try the
+    # ways it can work before giving up.
+    if tar --help 2>&1 | grep -q zstd && tar --zstd -xf "$PROJECT/$OLLAMA_TARBALL" -C "$PROJECT/ollama" 2>/dev/null; then
+        echo "extracted with tar --zstd"
+    elif command -v unzstd >/dev/null && unzstd -c "$PROJECT/$OLLAMA_TARBALL" | tar -x -C "$PROJECT/ollama"; then
+        echo "extracted with unzstd"
+    elif command -v zstd >/dev/null && zstd -dc "$PROJECT/$OLLAMA_TARBALL" | tar -x -C "$PROJECT/ollama"; then
+        echo "extracted with zstd"
+    else
+        module load zstd 2>/dev/null || true
+        if command -v zstd >/dev/null; then
+            zstd -dc "$PROJECT/$OLLAMA_TARBALL" | tar -x -C "$PROJECT/ollama"
+            echo "extracted with zstd from a module"
+        else
+            echo "no zstd available to unpack $OLLAMA_TARBALL" >&2
+            echo "try: module avail zstd" >&2
+            exit 1
+        fi
+    fi
+    rm -f "$PROJECT/$OLLAMA_TARBALL"
 fi
 ollama --version
 
