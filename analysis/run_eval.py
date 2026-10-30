@@ -534,7 +534,13 @@ def main():
     conditions = args.condition or CONDITIONS
 
     with open(args.questions) as handle:
-        questions = json.load(handle)["questions"]
+        document = json.load(handle)
+    questions = document["questions"]
+
+    # A questions file can name the paper for the whole file. Honouring it
+    # matters: ignoring it meant a file about one paper was silently evaluated
+    # against whatever --workspace happened to default to.
+    default_workspace = document.get("workspace", args.workspace)
     if args.question:
         questions = [q for q in questions if q["id"] in args.question]
     if not questions:
@@ -546,7 +552,7 @@ def main():
     loaded = {}
 
     def paper_for(question):
-        workspace = question.get("workspace", args.workspace)
+        workspace = question.get("workspace", default_workspace)
         if not os.path.isabs(workspace):
             workspace = os.path.join(REPO, workspace)
         if workspace in loaded:

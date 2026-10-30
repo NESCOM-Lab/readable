@@ -45,9 +45,10 @@ export PATH=$PROJECT/ollama/bin:$PATH
 export OLLAMA_MODELS=$PROJECT/ollama-models
 
 ollama serve &
-ollama pull qwen3.5:9b
-ollama pull nomic-embed-text
-ollama list          # both should appear, about 6.9GB together
+ollama pull qwen3.5:9b          # the generator
+ollama pull nomic-embed-text    # the embedder
+ollama pull gemma2:9b           # the judge, for the prose content points
+ollama list                     # all three, about 12GB together
 ```
 
 Leave the server running for step 2, which needs it to embed.
@@ -79,6 +80,26 @@ shasum -a 256 papers/maday2012.xml
 python3 analysis/embed.py maday2012
 ```
 
+Then build the questions file from the benchmark gold set. The job does this
+itself, but run it once by hand to read what it reports:
+
+```sh
+python3 analysis/benchmark_to_questions.py --workspace papers/maday2012 \
+    --track XML --drop-unfindable --out /tmp/questions_benchmark.json
+```
+
+Expect `145 questions, 288 content points`, split `184` regex and `104` judge,
+with `15 regex facets dropped as unfindable in the corpus`. Those 15 are real
+gold-versus-corpus gaps, not converter bugs: 13 are front matter (volume, pages,
+DOI, dates, affiliation) which `pgraph index` does not carry, and 2 ask for
+'CCD' in a camera model the XML names without it. Dropping them keeps the
+denominator to what some condition could actually reach.
+
+The suite's 10 unanswerable questions in this track are left out by default.
+Abstention is scored by *not* producing content, which a coverage metric cannot
+express; `--include-unanswerable` keeps them but nothing yet reports them
+properly.
+
 Only `source/` is corpus. Never index `Benchmark_Suite/benchmark/` or its
 README: they contain the reference answers.
 
@@ -99,6 +120,15 @@ tail -f logs/eval-<jobid>.out
 
 The job runs ollama and the harness on the same node over loopback, so it needs
 no `OLLAMA_HOST`.
+
+It writes to `results/<date>-carc/` and scores the same records twice:
+`scores_regex_only.txt` is deterministic and reproducible, and
+`scores_judged.txt` also covers the prose points. Compare them; a large gap
+means the judge is doing most of the work and deserves checking by hand.
+
+Budget: 145 questions x 6 conditions x 3 runs is about 2,600 generations, plus
+roughly 7,000 judge calls on top. On one A100 expect a few hours, against about
+21 hours on a laptop, which is the reason for doing this here.
 
 ## First run will probably fail
 

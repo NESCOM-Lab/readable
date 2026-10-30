@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
 """Score the recorded runs against the gold facets in questions.json.
 
-No model is involved. A facet counts as covered when one of its regexes matches
-the answer. Each facet is also checked against the text the model was shown,
+A facet counts as covered when its regexes match the answer: any one of them by
+default, or all of them when the facet says require 'all', which is how a
+content point like '82 +/- 2% (SEM)' keeps its uncertainty instead of being
+awarded to an answer that said only '82%'.
+
+Facets converted from the Benchmark_Suite may instead ask to be scored by a
+judge, because a claim about mechanism or polarity cannot be pattern matched
+without penalising paraphrase. Those need --judge; without it they are counted
+as unscored rather than as misses, so a run without a judge does not quietly
+report a third of the points as missing. Each facet is also checked against the text the model was shown,
 which separates a navigation miss (never saw it) from a generation miss (saw
 it, left it out).
 """
@@ -15,6 +23,8 @@ import re
 import statistics
 import subprocess
 
+import ollama_client
+
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ANALYSIS = os.path.join(REPO, "analysis")
 PGRAPH = os.path.join(REPO, "target", "release", "pgraph")
@@ -22,11 +32,21 @@ PGRAPH = os.path.join(REPO, "target", "release", "pgraph")
 CONDITION_ORDER = ["closedbook", "bm25", "raw", "rag", "rag_flat", "cli"]
 
 
-def matches(patterns, text):
+def matches(patterns, text, require="any"):
+    if require == "all":
+        for pattern in patterns:
+            if not re.search(pattern, text, re.I):
+                return False
+        return bool(patterns)
+
     for pattern in patterns:
         if re.search(pattern, text, re.I):
             return True
     return False
+
+
+def facet_matches(facet, text):
+    return matches(facet["patterns"], text, facet.get("require", "any"))
 
 
 def load_questions(path):
@@ -35,13 +55,25 @@ def load_questions(path):
 
 
 def paper_text(workspace):
-    """The whole paper as one string, used to sanity-check the rubric."""
+    """The whole paper as one string, used to sanity-check the rubric.
+
+    Includes the retrieval units as well as the rendered sections. Figure
+    captions and reference entries are units but are not in the section
+    markdown, so checking the markdown alone reported a facet sourced from a
+    caption as stale when it was correct.
+    """
     parts = []
     with open(os.path.join(workspace, "metadata.json")) as handle:
         parts.append(json.load(handle).get("abstract_text", ""))
     for path in sorted(glob.glob(os.path.join(workspace, "sections", "*.md"))):
         with open(path) as handle:
             parts.append(handle.read())
+
+    units_path = os.path.join(workspace, "units.json")
+    if os.path.exists(units_path):
+        with open(units_path) as handle:
+            for unit in json.load(handle):
+                parts.append(unit["text"])
     return "\n".join(parts)
 
 
@@ -86,7 +118,10 @@ def check_rubric(questions, default_workspace):
         text, ids = cache[workspace]
 
         for facet in question["facets"]:
-            if not matches(facet["patterns"], text):
+            if facet.get("scoring") == "judge":
+                # Nothing to check: the gold sentence is the rubric.
+                pass
+            elif not facet_matches(facet, text):
                 problems.append(f"{question['id']}/{facet['id']}: no pattern matches the paper")
             source = facet["source_section"]
             # A paper with no public full text has an abstract and no sections,
@@ -97,6 +132,60 @@ def check_rubric(questions, default_workspace):
                     f"{source} is not a section in this paper"
                 )
     return problems
+
+
+
+JUDGE_PROMPT = """You are checking whether a piece of text states one specific
+content point. Accept a faithful paraphrase and equivalent units. Do not accept
+it if the text omits it, hedges it away, or states the opposite. Polarity,
+context, units and uncertainty all have to survive.
+
+CONTENT POINT:
+{element}
+
+TEXT:
+{text}
+
+Answer with one word, YES if the text states the content point, NO if it does
+not."""
+
+
+class Judge:
+    """Asks a local model whether a text states one gold content point.
+
+    Answers are cached on the exact pair, because the same element is checked
+    against the same answer and context repeatedly across conditions and runs.
+    """
+
+    def __init__(self, model):
+        self.model = model
+        self.cache = {}
+        self.calls = 0
+
+    def says(self, element, text):
+        if not text.strip():
+            return False
+
+        key = (element, text)
+        if key in self.cache:
+            return self.cache[key]
+
+        response = ollama_client.post("/api/generate", {
+            "model": self.model,
+            "prompt": JUDGE_PROMPT.format(element=element, text=text),
+            "stream": False,
+            "think": False,
+            "keep_alive": ollama_client.KEEP_ALIVE,
+            # A one-word verdict, and no sampling, so the same pair always
+            # scores the same way.
+            "options": {"num_ctx": 8192, "num_predict": 4, "temperature": 0},
+        })
+        self.calls += 1
+
+        reply = response.get("response", "")
+        verdict = "YES" in reply.strip().upper()
+        self.cache[key] = verdict
+        return verdict
 
 
 SECTION_ACTION = re.compile(r"ACTION:\s*section\s+(\S+)", re.I)
@@ -115,13 +204,28 @@ def sections_read(record):
     return found
 
 
-def score_record(record, question):
+def score_record(record, question, judge=None):
     read = sections_read(record)
+    context = record.get("context_text", "")
 
     facets = []
     for facet in question["facets"]:
-        in_answer = matches(facet["patterns"], record["answer"])
-        in_context = matches(facet["patterns"], record.get("context_text", ""))
+        if facet.get("scoring") == "judge":
+            if judge is None:
+                # Counting these as misses would understate every condition by
+                # the same large amount and look like a result.
+                facets.append({
+                    "id": facet["id"],
+                    "source_section": facet["source_section"],
+                    "scoring": "judge",
+                    "verdict": "unscored",
+                })
+                continue
+            in_answer = judge.says(facet["element"], record["answer"])
+            in_context = judge.says(facet["element"], context)
+        else:
+            in_answer = facet_matches(facet, record["answer"])
+            in_context = facet_matches(facet, context)
 
         if in_answer:
             verdict = "hit"
@@ -133,6 +237,7 @@ def score_record(record, question):
         facets.append({
             "id": facet["id"],
             "source_section": facet["source_section"],
+            "scoring": facet.get("scoring", "regex"),
             # Only meaningful for cli, where reaching a section is a choice.
             "source_read": facet["source_section"] in read if read else None,
             "in_context": in_context,
@@ -140,11 +245,13 @@ def score_record(record, question):
             "verdict": verdict,
         })
 
-    covered = sum(1 for facet in facets if facet["in_answer"])
+    scored = [facet for facet in facets if facet["verdict"] != "unscored"]
+    covered = sum(1 for facet in scored if facet["in_answer"])
     return {
         "covered": covered,
-        "total": len(facets),
-        "coverage": covered / len(facets),
+        "total": len(scored),
+        "unscored": len(facets) - len(scored),
+        "coverage": covered / len(scored) if scored else 0.0,
         "sections_read": read,
         "facets": facets,
     }
@@ -156,10 +263,17 @@ def main():
     parser.add_argument("--questions", default=os.path.join(ANALYSIS, "questions.json"))
     parser.add_argument("--workspace", default=os.path.join(REPO, "PMC11289285-test"))
     parser.add_argument("--json", help="also write the full per-facet scores here")
+    parser.add_argument("--judge", nargs="?", const="gemma2:9b", default=None,
+                        metavar="MODEL",
+                        help="score the judge facets with this local model "
+                             "(default gemma2:9b). Without it they are left "
+                             "unscored and reported separately.")
     args = parser.parse_args()
 
     questions = load_questions(args.questions)
     by_id = {question["id"]: question for question in questions["questions"]}
+
+    judge = Judge(args.judge) if args.judge else None
 
     problems = check_rubric(questions, args.workspace)
     if problems:
@@ -175,7 +289,7 @@ def main():
         question = by_id.get(record["question_id"])
         if question is None:
             continue
-        entry = score_record(record, question)
+        entry = score_record(record, question, judge)
         entry.update({
             "question_id": record["question_id"],
             "condition": record["condition"],
