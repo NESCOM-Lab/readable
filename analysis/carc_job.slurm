@@ -14,7 +14,10 @@
 
 #SBATCH --account=jbouteil_621
 #SBATCH --partition=gpu
-#SBATCH --gres=gpu:a100:1
+# Any of these is far more GPU than a 9B model needs, and pinning a100 meant
+# queueing behind every a100 user while a40 and v100 nodes sat idle.
+#SBATCH --gres=gpu:1
+#SBATCH --constraint=a100|a40|v100
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
 #SBATCH --time=12:00:00
