@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 # Run the evaluation matrix on a CARC GPU node.
 #
 # Both ollama and the harness run on the same node, so the harness talks to
@@ -43,6 +43,18 @@ export PATH=$HOME/.cargo/bin:$PATH
 
 echo "node       $(hostname)"
 echo "python     $(python3 --version 2>&1)"
+
+# Check this before generating anything. On python 3.6 subprocess.run has no
+# capture_output, so every pgraph call inside the cli loop fails while the
+# run still looks healthy: the agent keeps answering, just blind to the
+# paper's structure. That cost a four hour run.
+python3 - <<'VERSION' || exit 1
+import sys
+if sys.version_info < (3, 7):
+    sys.stderr.write("python %s is too old; need 3.7+ for subprocess capture_output\n"
+                     % ".".join(str(part) for part in sys.version_info[:3]))
+    raise SystemExit(1)
+VERSION
 echo "gpu        $(nvidia-smi --query-gpu=name,memory.total --format=csv,noheader)"
 echo "started    $(date)"
 
@@ -91,17 +103,28 @@ mkdir -p "$OUT"
 # Build the questions file from the benchmark gold set. Regenerated here rather
 # than committed, because the facets depend on units.json and have to match the
 # workspace this job is about to query.
-python3 analysis/benchmark_to_questions.py \
-    --workspace papers/maday2012 \
-    --track XML \
-    --drop-unfindable \
-    --out "$OUT/questions_benchmark.json"
+if [ -f "$OUT/questions_benchmark.json" ]; then
+    echo "reusing the existing questions file, so a rerun scores the same rubric"
+else
+    python3 analysis/benchmark_to_questions.py \
+        --workspace papers/maday2012 \
+        --track XML \
+        --drop-unfindable \
+        --out "$OUT/questions_benchmark.json"
+fi
+
+# CONDITIONS lets a broken condition be regenerated on its own, instead of
+# paying for the whole matrix again.
+CONDITION_ARGS=""
+for condition in ${CONDITIONS:-}; do
+    CONDITION_ARGS="$CONDITION_ARGS --condition $condition"
+done
 
 python3 analysis/run_eval.py \
     --questions "$OUT/questions_benchmark.json" \
     --workspace papers/maday2012 \
     --out "$OUT/records" \
-    --runs 3
+    --runs 3 $CONDITION_ARGS
 
 # Two scorings of the same records. The regex-only pass is deterministic and
 # reproducible; the judged pass also covers the prose content points, which is
