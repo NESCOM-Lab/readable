@@ -97,8 +97,11 @@ if [ ! -s papers/maday2012/embeddings.json ]; then
     python3 analysis/embed.py papers/maday2012
 fi
 
-OUT=results/$(date +%Y-%m-%d)-carc
+# OUT can be set to an earlier run's folder, so a regenerated condition lands
+# beside the records that are still good instead of in a fresh dated folder.
+OUT=${OUT:-results/$(date +%Y-%m-%d)-carc}
 mkdir -p "$OUT"
+echo "writing to  $OUT"
 
 # Build the questions file from the benchmark gold set. Regenerated here rather
 # than committed, because the facets depend on units.json and have to match the
